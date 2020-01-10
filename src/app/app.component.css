@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+.header {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid;
+}
+
+#logo img {
+  width: 80px;
+  height: auto;
+}
+
+.glyphicon-search {
+  width: 60%;
+  height: 60%;
+  margin-top: 2%;
+  border-style: outset;
+  opacity: 0.8;
+  color: black;
+  font-family: "Arial";
+}
+
+#navbar {
+  margin-top: 2%;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 600;
+  opacity: 0.6;
+}
