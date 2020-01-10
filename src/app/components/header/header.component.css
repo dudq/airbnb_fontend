@@ -1,0 +1,37 @@
+.nav-item {
+  font-weight: bold;
+}
+
+.nav-item:hover {
+  background-color: darkgrey;
+  color: #ffffff;
+  cursor: pointer;
+  height: 45px;
+}
+
+.dropdown-item:hover {
+  background-color: darkgrey;
+  color: #ffffff;
+}
+
+#dropdownMenu {
+  margin-left: -30px;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+#logo {
+  cursor: pointer;
+}
+
+.form-control::placeholder {
+  font-family: FontAwesome;
+}
+
+

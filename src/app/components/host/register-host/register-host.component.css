@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-light {
+  border: 2px solid gray;
+  border-radius: 7px;
+  height: auto;
+  text-align: left;
+  width: 600px;
+}
+
+/*.btn-light .btn-primary {*/
+/*  width: 600px;*/
+/*  padding: 20px;*/
+
+/*}*/
+#btnRegister {
+  width: 200px;
+
+  margin: 0 auto;
+}
+
+#btnRegister button {
+
+}
+
+.parent-login {
+  background-image: url("https://hinhanhdep.vn/wp-content/uploads/2019/06/hinh-nen-phong-canh-dep-nhat-1.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-size: cover;
+  height: 600px;
+
+}
+
+.register-form label {
+  padding: 5px;
+}
+
+.form-group {
+  margin: 10px;
+}
+
+.displayErrorMessage {
+  color: red;
+  font-weight: 100;
+  font-family: Dialog;
+  padding-top: 2%;
+}

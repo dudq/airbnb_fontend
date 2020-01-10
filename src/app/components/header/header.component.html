@@ -1,0 +1,88 @@
+<div class="container col-md-12 col-sm-12">
+  <div class="row">
+    <nav class="navbar navbar-light bg-light col-md-12 col-sm-12" id="navbar-example2">
+      <div id="logo">
+        <img alt=""
+             height="60"
+             routerLink="/home"
+             src="https://i1.wp.com/ebenezersuites.com/wp-content/uploads/2016/06/airbnb-logo-266x300@2x.png">
+      </div>
+      <div class="col-md-6">
+        <input aria-label="Search" class="form-control" placeholder="&#61442;  Search" type="text">
+      </div>
+      <!--  <a style="font-weight: bold" class="navbar-brand" routerLink="/home">AirBnb</a>-->
+      <ul class="nav nav-pills">
+
+        <li *ngIf="authority === 'user'" class="nav-item">
+          <label class="nav-link" routerLink="/home/category-list">Category House</label>
+        </li>
+        <li *ngIf="authority === 'user'" class="nav-item">
+          <label class="nav-link" routerLink="/home/house-list-for-guest">View List House</label>
+        </li>
+        <li *ngIf="authority === 'user'" class="nav-item">
+          <label class="nav-link" routerLink="/booking">Booking</label>
+
+          <label class="nav-link" routerLink="/home/list-order-of-user">List Order</label>
+        </li>
+        <li *ngIf="authority === 'user'" class="nav-item">
+          <label class="nav-link" routerLink="/register-host">Home Stay</label>
+        </li>
+        <li *ngIf="authority === 'user'" class="nav-item">
+          <label class="nav-link" routerLink="/register-host">Resort</label>
+        </li>
+        <li *ngIf="authority === 'user'" class="nav-item">
+          <label (click)="logout()" class="nav-link">Logout</label>
+        </li>
+
+        <li *ngIf="authority === 'host'" class="nav-item">
+          <label class="nav-link" routerLink="/home/category-list">Category House</label>
+        </li>
+
+        <li *ngIf="authority === 'host'" class="nav-item">
+          <label class="nav-link">Manage House</label>
+        </li>
+
+        <li *ngIf="!authority" class="nav-item">
+          <label class="nav-link" routerLink="/register-host">Register for Host</label>
+        </li>
+        <li *ngIf="authority === 'host'" class="nav-item">
+          <label class="nav-link" routerLink="/home/add-house">Add House</label>
+        </li>
+        <li *ngIf="!authority" class="nav-item">
+          <label class="nav-link" routerLink="/register">Register for User</label>
+        </li>
+        <li *ngIf="authority === 'host'" class="nav-item">
+          <label class="nav-link" routerLink="/home/house-of-host">Host</label>
+        </li>
+        <li *ngIf="authority === 'host'" class="nav-item">
+          <label class="nav-link" routerLink="/register">Messages</label>
+        </li>
+        <li *ngIf="authority === 'host'" class="nav-item">
+          <label (click)="logout()" class="nav-link">Logout</label>
+        </li>
+        <li class="nav-item dropdown">
+          <button *ngIf="authority ==='user'" aria-expanded="false" aria-haspopup="true"
+                  class="btn btn-primary dropdown-toggle"
+                  data-toggle="dropdown" role="button">User {{info.username}}</button>
+          <button *ngIf="authority === 'host'" aria-expanded="false" aria-haspopup="true"
+                  class="btn btn-primary dropdown-toggle"
+                  data-toggle="dropdown" role="button">Host {{info.username}}</button>
+          <button *ngIf="!authority" aria-expanded="false" aria-haspopup="true"
+                  class="btn btn-primary dropdown-toggle"
+                  data-toggle="dropdown" role="button">Account
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a class="dropdown-item" routerLink="/login">Login</a>
+            <a class="dropdown-item" routerLink="/information">Profile</a>
+            <a class="dropdown-item" routerLink="/login">Account</a>
+            <a class="dropdown-item" routerLink="/login">Invite Friends</a>
+            <!--            <a class="dropdown-item" (click)="logout()">Logout</a>-->
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
