@@ -1,13 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-// @ts-ignore
 import {AuthLoginInfo} from './login-infor';
 import {Observable} from 'rxjs';
-// @ts-ignore
 import {JwtResponse} from './jwt-response';
 // @ts-ignore
 import {SignUpInfo} from './sigup-info';
-// @ts-ignore
 import {SigupHostInfo} from './sigup-host-info';
 
 const httpOptions = {
