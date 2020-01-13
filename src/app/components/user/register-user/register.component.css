@@ -8,7 +8,7 @@
   border-radius: 7px;
   height: auto;
   text-align: left;
-  width: 600px;
+  width: 400px;
 }
 
 /*.btn-light .btn-primary {*/
@@ -17,7 +17,7 @@
 
 /*}*/
 #btnRegister {
-  width: 200px;
+  width: 150px;
 
   margin: 0 auto;
 }
@@ -27,12 +27,12 @@
 }
 
 .parent-login {
-  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/dd3f1937594867.5745a6785be0c.png");
+  background-image: url("https://i.dailymail.co.uk/i/pix/2016/01/16/16/303585A300000578-3402616-This_secluded_treehouse_in_Atlanta_contains_three_connected_tree-a-79_1452960637821.jpg");
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-size: cover;
+  background-size: 1400px 642px;
   height: 600px;
 
 }
@@ -49,5 +49,5 @@
   color: red;
   font-weight: 100;
   font-family: Dialog;
-  padding-top: 2%;
+  padding-top: 0;
 }

@@ -12,28 +12,20 @@
       <ng-template #loggedOut>
         <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="form-signin col-md-12 col-sm-12" name="form"
               novalidate>
-          <h1 class="h3 mb-3 font-weight-normal" routerLink="/home"> Sign in</h1>
-          <div class="social-login">
-            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span>
-            </button>
-            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span>
-            </button>
-          </div>
-          <p id="or" style="text-align:center"> OR </p>
+          <h1 class="h3 mb-3 font-weight-bolder" style="color: green"> Welcome</h1>
+
+
           <input #username="ngModel" [(ngModel)]="form.username" aria-describedby="User Name" class="form-control"
                  id="exampleInputUserName"
                  name="username"
                  placeholder="User Name" required type="text">
-          <!--      <small id="email" class="form-text text-muted">-->
-          <!--        We will never share your user name with anyone else.-->
-          <!--      </small>-->
 
           <input #password="ngModel" [(ngModel)]="form.password" class="form-control" id="exampleInputPassword"
                  minlength="6"
                  name="password" placeholder="Password" required type="password"
           >
 
-          <button class="btn btn-success btn-siginin-signup" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in
+          <button class="btn btn-success btn-siginin-signup" type="submit"><i class="fas fa-sign-in-alt"></i> Log in
           </button>
           <a href="#" id="forgot_pswd">Forgot password?</a>
           <hr>

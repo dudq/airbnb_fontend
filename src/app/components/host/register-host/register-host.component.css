@@ -8,16 +8,11 @@
   border-radius: 7px;
   height: auto;
   text-align: left;
-  width: 600px;
+  width: 400px;
 }
 
-/*.btn-light .btn-primary {*/
-/*  width: 600px;*/
-/*  padding: 20px;*/
-
-/*}*/
 #btnRegister {
-  width: 200px;
+  width: 150px;
 
   margin: 0 auto;
 }
@@ -27,12 +22,12 @@
 }
 
 .parent-login {
-  background-image: url("https://hinhanhdep.vn/wp-content/uploads/2019/06/hinh-nen-phong-canh-dep-nhat-1.jpg");
+  background-image: url("http://hinh-nen.org/images/14529hinh-nen-nhung-ngoi-nha-sac-mau-dep-nhu-trong-tranh.jpg");
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-size: cover;
+  background-size: 800px 600px;
   height: 600px;
 
 }
