@@ -1,0 +1,38 @@
+@import "../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+h1{
+  text-align: center;
+  margin-top: 20px;
+}
+#priceHouseItem {
+  text-align: right;
+}
+
+
+.col-sm-4 {
+  padding-bottom: 50px;
+
+}
+.row{
+  margin: 0 auto;
+}
+
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-house {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+
