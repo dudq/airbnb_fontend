@@ -10,11 +10,11 @@
       <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()"
             class="register-form" name="form" novalidate>
         <label class="btn btn-light  ">
-          <h2 style="text-align: center;">Register</h2>
+          <h2 style="text-align: center;">Register User</h2>
           <div class="form-group ">
             <label>Name</label>
             <input #name="ngModel" [(ngModel)]="form.name" aria-describedby="Name" class="form-control"
-                   id="exampleInputName" name="name" placeholder="User Name" required
+                   id="exampleInputName" name="name" placeholder="Name" required
                    type="text">
             <div *ngIf="f.submitted && name.invalid">
               <div *ngIf="name.errors.required" class="displayErrorMessage">Name is required</div>

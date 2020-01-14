@@ -1,13 +1,13 @@
-import {DataHouseList} from '../../components/user/home-list-for-guest/house-list/dataHouseList';
+import {HouseConvert} from './houseConvert';
 
 
-export class House {
+export class HouseList {
   // success: boolean;
   // message: string;
   // tslint:disable-next-line:variable-name
   // private _dataHouseDetails: Array<DataHouseDetails>;
   // tslint:disable-next-line:variable-name
-  private _data: Array<DataHouseList>;
+  private _data: Array<HouseConvert>;
 
   // get dataHouseDetail(): Array<DataHouseDetails> {
   //   return this._dataHouseDetails;
@@ -20,11 +20,11 @@ export class House {
 
   // tslint:disable-next-line:variable-name
 
-  get data(): Array<DataHouseList> {
+  get data(): Array<HouseConvert> {
     return this._data;
   }
 
-  set data(value: Array<DataHouseList>) {
+  set data(value: Array<HouseConvert>) {
     this._data = value;
   }
 }
