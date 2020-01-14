@@ -16,6 +16,7 @@ import {RegisterHostComponent} from './components/host/register-host/register-ho
 import {LoginComponent} from './components/login/login.component';
 import {AddHouseComponent} from './components/host/add-house/add-house.component';
 import {ListHouseOfHostComponent} from './components/host/list-house-of-host/list-house-of-host.component';
+import {CategoryHouseComponent} from './components/category-house/category-house.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
     RegisterHostComponent,
     LoginComponent,
     AddHouseComponent,
-    ListHouseOfHostComponent
+    ListHouseOfHostComponent,
+    CategoryHouseComponent
   ],
   imports: [
     BrowserModule,
