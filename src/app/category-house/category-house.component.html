@@ -1,0 +1,29 @@
+<div *ngIf="category" class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table">
+        <div class="row header">
+          <div class="cell">
+            ID
+          </div>
+          <div class="cell">
+            NAME
+          </div>
+        </div>
+        <div *ngFor="let category of category.data | orderBy: 'id,name'|
+            paginate: {itemsPerPage: 5, currentPage:pageActual},index as i" class="row">
+          <div class="cell" data-title="Full Name">
+            {{category.id |number}}
+          </div>
+          <div class="cell" data-title="Age">
+            {{category.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center">
+    <pagination-controls (pageChange)="pageActual = $event"
+    ></pagination-controls>
+  </div>
+</div>

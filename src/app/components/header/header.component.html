@@ -46,7 +46,7 @@
           <label class="nav-link" routerLink="/register-host">Register for Host</label>
         </li>
         <li *ngIf="authority === 'host'" class="nav-item">
-          <label class="nav-link" routerLink="/host/add-house">Add House</label>
+          <label class="nav-link" routerLink="/add-house">Add House</label>
         </li>
         <li *ngIf="!authority" class="nav-item">
           <label class="nav-link" routerLink="/register">Register for User</label>
@@ -82,6 +82,5 @@
     </nav>
   </div>
 </div>
-
 
 <router-outlet></router-outlet>

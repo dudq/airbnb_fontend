@@ -1,11 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {DataCreateHouse} from './data-house/dataCreateHouse';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {AngularFireDatabase} from '@angular/fire/database';
-import {Router} from '@angular/router';
-import {TokenStorageService} from '../../../auth/token-storage.service';
+import { Component, OnInit } from '@angular/core';
+import {CreateHouse} from './data-create-house/createHouse';
+import {DataCreatedHouse} from './data-create-house/dataCreatedHouse';
 import {HouseService} from '../../../service/house/house.service';
-import {CategoryHouse} from '../../category-house/data-category/categoryHouse';
+import {TokenStorageService} from '../../../auth/token-storage.service';
+import {Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AngularFireDatabase} from '@angular/fire/database';
+import * as firebase from 'firebase';
+import {CategoryHouse} from '../../../category-house/data-category/categoryHouse';
+
 
 @Component({
   selector: 'app-add-house',
@@ -13,20 +16,29 @@ import {CategoryHouse} from '../../category-house/data-category/categoryHouse';
   styleUrls: ['./add-house.component.css']
 })
 export class AddHouseComponent implements OnInit {
-  submitted = false;
-  houseData: DataCreateHouse;
-  houseForm: FormGroup;
-  arrayPicture: string;
-  isSuccess = false;
-  category: CategoryHouse;
+
   private info: any = {};
+  isSuccess = false;
+  form: any = {};
+  house: CreateHouse;
+  category: CategoryHouse;
+  submitted = false;
+  categorySelected: number;
+
+  houseData: DataCreatedHouse;
+
+  picture: string;
+  arrayPicture: string;
 
   constructor(private houseService: HouseService,
               private token: TokenStorageService,
               private router: Router,
               private formBuilder: FormBuilder,
-              private fb: AngularFireDatabase) {
+              private fb: AngularFireDatabase
+  ) {
   }
+
+  houseForm: FormGroup;
 
   ngOnInit() {
     this.getCategoryList();
@@ -36,15 +48,43 @@ export class AddHouseComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
+    console.log('token from Browser:' + this.info.token);
+    this.houseForm = this.formBuilder.group({
+      houseName: new FormControl('', Validators.required),
+      category: new FormControl(this.category),
+      picture: new FormControl(''),
+      address: new FormControl('', Validators.required),
+      bedroomNumber: new FormControl('', Validators.required),
+      bathroomNumber: new FormControl('', Validators.required),
+      description: new FormControl(''),
+      price: new FormControl('', Validators.required),
+      area: new FormControl(''),
+      user: this.token.getUserId(),
+    });
+    console.log('>>>>get user now:' + this.token.getUserId());
+  }
+
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.houseForm.controls;
+  }
+
+  private getCategoryList() {
+    this.houseService.getListCategory().subscribe(result => {
+      // @ts-ignore
+      this.category = result;
+    });
   }
 
   onSubmit() {
     this.submitted = true;
     this.houseData = this.houseForm.value;
     this.arrayPicture = this.arrayPicture.trim();
-    this.houseData.price = this.arrayPicture;
+    this.houseData.picture = this.arrayPicture;
     console.log(this.houseData);
     const house = this.houseForm.value;
+
+    // stop here if form is invalid
     if (this.houseForm.invalid) {
       return this.houseService.addHouse(this.houseData).subscribe(result => {
         this.isSuccess = false;
@@ -59,9 +99,35 @@ export class AddHouseComponent implements OnInit {
     alert('SUCCESS!! :-)');
   }
 
-  private getCategoryList() {
-    this.houseService.getListCategory().subscribe(result => {
-      this.category = result;
-    });
+
+  uploadFile(event) {
+    this.arrayPicture = '';
+    console.log(event);
+    const file = event.target.files;
+    const metadata = {
+      contentType: 'image/jpeg',
+    };
+    let i = 0;
+    while ( i < file.length ) {
+      console.log('Outside ', i, file[i]);
+      // @ts-ignore
+      const uploadTask = firebase.storage().ref('img/' + file[i].name + Date.now()).put(file[i], metadata);
+      uploadTask.on(
+        firebase.storage.TaskEvent.STATE_CHANGED,
+        (snapshot) => {
+          const snap = snapshot as firebase.storage.UploadTaskSnapshot;
+          console.log(snap);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+            this.arrayPicture += downloadURL + ' ';
+          });
+        });
+      i++;
+    }
   }
+
 }

@@ -1,6 +1,97 @@
-<form action="">
+<div class="container">
+  <div *ngIf="isSuccess" class="alert alert-success" role="alert">
+    Đã thêm nhà thành công!
+  </div>
   <fieldset>
     <legend>Add new house</legend>
-    <form (ngSubmit)="onSubmit()" [formGroup]="houseForm" style="border: 1px solid"></form>
+    <form [formGroup]="houseForm" (ngSubmit)="onSubmit()" style="border: 4px solid #DF4B3B">
+
+
+      <div class="form-group">
+        <label>House Name</label>
+        <input type="text"
+               formControlName="houseName"
+               class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.houseName.errors }">
+        <div *ngIf="submitted && f.houseName.errors" class="invalid-feedback">
+          <div *ngIf="f.houseName.errors.required">House Name is required</div>
+        </div>
+      </div>
+
+      <div *ngIf="category" class="form-group">
+        <label>
+          Category
+        </label>
+        <select
+          type="text" id="category"
+          name="category"
+          formControlName="category"
+          class="form-control">
+          <option *ngFor="let category of category.data" [value]="category.id">
+            {{category.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Picture: </label>
+        <input type="file" class="form-control" placeholder="picture"
+               formControlName="picture"
+               (change)="uploadFile($event)"
+               multiple
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Address: </label>
+        <input type="text"
+               class="form-control"
+               formControlName="address"
+               [ngClass]="{ 'is-invalid': submitted && f.address.errors }"/>
+        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+          <div *ngIf="f.address.errors.required">Address is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Bedroom Number: </label>
+        <input type="text"
+               class="form-control"
+               formControlName="bedroomNumber"
+               [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+        <div *ngIf="submitted && f.bedroomNumber.errors" class="invalid-feedback">
+          <div *ngIf="f.bedroomNumber.errors.required">Bedroom quantity is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Bathroom Number: </label>
+        <input type="text"
+               class="form-control"
+               formControlName="bathroomNumber"
+               [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+        <div *ngIf="submitted && f.bathroomNumber.errors" class="invalid-feedback">
+          <div *ngIf="f.bathroomNumber.errors.required">Bathroom quantity is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Description: </label>
+        <input type="text"
+               class="form-control"
+               formControlName="description">
+      </div>
+      <div class="form-group">
+        <label>Price: </label>
+        <input type="text"
+               class="form-control"
+               formControlName="price"
+               [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required">Price is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Add</button>
+        <button class="btn btn-primary" routerLink="/home">Back Home</button>
+      </div>
+    </form>
   </fieldset>
-</form>
+</div>

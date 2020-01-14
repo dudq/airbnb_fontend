@@ -1,1 +1,28 @@
-<p>list-house-of-host works!</p>
+<table *ngIf="houseListOfHost" class="table table-hover">
+  <thead>
+  <tr class="table-bordered table-primary" style="text-align: center; font-weight: 900 ; color: red ; font-size: 50px">
+    <th scope="col">#ID</th>
+    <th scope="col">Tên Nhà</th>
+    <th scope="col">Địa Chỉ</th>
+    <th scope="col">Loại Nhà</th>
+    <th scope="col">Giá</th>
+    <th scope="col">Trạng Thái</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr routerLink="/home/{{houseItem.id}}/{{houseItem.name}}" class="table-bordered" style="text-align: center" *ngFor="let houseItem of houseListOfHost.data |
+    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">
+    <th  scope="row">{{houseItem.id}}</th>
+    <th>{{houseItem.name}}</th>
+    <th>{{houseItem.address}}</th>
+    <th>{{houseItem.categoryName}}</th>
+    <th>{{houseItem.price}}</th>
+    <th>{{houseItem.status}}</th>
+  </tr>
+  </tbody>
+</table>
+<div id="pagination">
+  <pagination-controls (pageChange)="pageActual = $event"
+  ></pagination-controls>
+</div>
+<router-outlet></router-outlet>
