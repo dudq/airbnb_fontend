@@ -52,10 +52,10 @@ export class AddHouseComponent implements OnInit {
       category: new FormControl(this.category),
       picture: new FormControl(''),
       address: new FormControl('', Validators.required),
-      bedroomNumber: new FormControl('', Validators.required),
-      bathroomNumber: new FormControl('', Validators.required),
+      bedroomNumber: new FormControl('', [Validators.required, Validators.min(0)]),
+      bathroomNumber: new FormControl('', [Validators.required, Validators.min(0)]),
       description: new FormControl(''),
-      price: new FormControl('', Validators.required),
+      price: new FormControl('', [Validators.required, Validators.min(0)]),
       area: new FormControl(''),
       user: this.token.getUserId(),
     });
