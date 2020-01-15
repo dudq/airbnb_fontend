@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CreateHouse} from './data-create-house/createHouse';
 import {DataCreatedHouse} from './data-create-house/dataCreatedHouse';
 import {HouseService} from '../../../service/house/house.service';
 import {TokenStorageService} from '../../../auth/token-storage.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {AngularFireDatabase} from '@angular/fire/database';
 import * as firebase from 'firebase';
 import {CategoryHouse} from '../../../category-house/data-category/categoryHouse';
 
@@ -33,8 +32,7 @@ export class AddHouseComponent implements OnInit {
   constructor(private houseService: HouseService,
               private token: TokenStorageService,
               private router: Router,
-              private formBuilder: FormBuilder,
-              private fb: AngularFireDatabase
+              private formBuilder: FormBuilder
   ) {
   }
 
