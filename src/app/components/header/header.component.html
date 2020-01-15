@@ -7,7 +7,7 @@
              routerLink="/home"
              src="../assets/images/Airbnb.png">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <input aria-label="Search" class="form-control" placeholder="&#61442;  Search" type="text">
       </div>
       <!--  <a style="font-weight: bold" class="navbar-brand" routerLink="/home">AirBnb</a>-->
@@ -21,7 +21,8 @@
         </li>
         <li *ngIf="authority === 'user'" class="nav-item">
           <label class="nav-link" routerLink="/booking">Booking</label>
-
+        </li>
+        <li *ngIf="authority === 'user'" class="nav-item">
           <label class="nav-link" routerLink="/home/list-order-of-user">List Order</label>
         </li>
         <li *ngIf="authority === 'user'" class="nav-item">

@@ -5,11 +5,16 @@ import {RegisterComponent} from './components/user/register-user/register.compon
 import {RegisterHostComponent} from './components/host/register-host/register-host.component';
 import {LoginComponent} from './components/login/login.component';
 import {AddHouseComponent} from './components/host/add-house/add-house.component';
+import {ListHouseOfHostComponent} from './components/host/list-house-of-host/list-house-of-host.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'host/list-house-of-host',
+    component: ListHouseOfHostComponent
   },
   {
     path: 'login',
