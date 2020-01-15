@@ -93,7 +93,7 @@ export class RegisterHostComponent implements OnInit {
         this.navbar.ngOnInit();
         console.log('>>>>' + this.tokenStorage);
         // this.reloadPage();
-        this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/');
       },
       error => {
         console.log(error);

@@ -10,13 +10,17 @@
       <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="register-form" name="form" novalidate>
         <label class="btn btn-light  ">
           <h2 style="text-align: center;">Register Host</h2>
-          <div class="form-group ">
+          <div class="form-group">
             <label>Name</label>
-            <input #name="ngModel" [(ngModel)]="form.name" aria-describedby="Name" class="form-control"
-                   id="exampleInputName" name="name" placeholder="User Name" required
-                   type="text">
+            <input #name="ngModel" [(ngModel)]="form.name" class="form-control"
+                   minlength="6"
+                   name="name" placeholder="Name"
+                   required type="text">
             <div *ngIf="f.submitted && name.invalid">
               <div *ngIf="name.errors.required" class="displayErrorMessage">Name is required</div>
+              <div *ngIf="name.errors.minlength" class="displayErrorMessage">Name must be at least 6
+                characters
+              </div>
             </div>
           </div>
           <div class="form-group">
@@ -31,11 +35,16 @@
           <div class="form-group">
             <label>Username</label>
             <input #username="ngModel" [(ngModel)]="form.username" class="form-control" name="username"
+                   maxlength="16"
+                   minlength="6"
                    placeholder="Username"
                    required
                    type="text">
             <div *ngIf="f.submitted && username.invalid">
               <div *ngIf="username.errors.required" class="displayErrorMessage">Username is required</div>
+              <div *ngIf="username.errors.minlength||username.errors.maxlength" class="displayErrorMessage">User name
+                must confirm from 6 to 16 character
+              </div>
             </div>
           </div>
           <div class="form-group">
