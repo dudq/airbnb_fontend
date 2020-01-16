@@ -34,4 +34,8 @@ export class CategoryService {
   editCategory(category): Observable<any> {
     return this.httpClient.put(this.API_URL + '/' + category.id, category);
   }
+
+  getCategoryList(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.API_URL);
+  }
 }

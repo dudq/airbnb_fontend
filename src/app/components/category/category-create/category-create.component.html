@@ -1,1 +1,37 @@
-<p>category-create works!</p>
+<div class="col-6 offset-3">
+  <div *ngIf="message">
+    <div class="alert alert-success">
+      <strong>Success!</strong> You have created a new category
+    </div>
+    <div>
+      <div class="form-group">
+        <input (click)="message = !message" class="btn btn-primary btn-block" value="Create new category">
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary btn-block" routerLink="/category-list" value="Back to category list">
+      </div>
+    </div>
+  </div>
+  <form
+    (ngSubmit)="categoryForm.valid && onSubmit()"
+    *ngIf="!message"
+    [formGroup]="categoryForm"
+    name="form"
+    novalidate>
+    <div class="form-group">
+      <label>Category name</label>
+      <input class="form-control" formControlName="name" type="text"/>
+      <div *ngIf="categoryForm.get('name').invalid && categoryForm.get('name').touched" class="alert-danger"
+           style="color: aqua">
+        Category name must be ay least 1 characters
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">Create</button>
+    </div>
+    <div class="form-group">
+      <input class="btn btn-primary btn-block" routerLink="" value="Cancel">
+    </div>
+  </form>
+</div>
