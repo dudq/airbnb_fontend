@@ -7,6 +7,10 @@ import {LoginComponent} from './components/login/login.component';
 import {AddHouseComponent} from './components/host/add-house/add-house.component';
 import {ListHouseOfHostComponent} from './components/host/list-house-of-host/list-house-of-host.component';
 import {HomeListForGuestComponent} from './components/user/home-list-for-guest/home-list-for-guest.component';
+import {CategoryListComponent} from './category/category-list/category-list.component';
+import {CategoryCreateComponent} from './category/category-create/category-create.component';
+import {CategoryEditComponent} from './category/category-edit/category-edit.component';
+import {CategoryDeleteComponent} from './category/category-delete/category-delete.component';
 
 const routes: Routes = [
   {
@@ -22,6 +26,10 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'register-host',
+    component: RegisterHostComponent
+  },
+  {
     path: 'add-house',
     component: AddHouseComponent
   },
@@ -34,8 +42,20 @@ const routes: Routes = [
     component: HomeListForGuestComponent
   },
   {
-    path: 'register-host',
-    component: RegisterHostComponent
+    path: 'category-list',
+    component: CategoryListComponent
+  },
+  {
+    path: 'category-create',
+    component: CategoryCreateComponent
+  },
+  {
+    path: 'category-edit/:id',
+    component: CategoryEditComponent
+  },
+  {
+    path: 'category-delete/:id',
+    component: CategoryDeleteComponent
   }
 ];
 
