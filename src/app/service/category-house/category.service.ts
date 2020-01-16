@@ -7,7 +7,7 @@ import {ICategory} from '../../category/iCategory';
   providedIn: 'root'
 })
 export class CategoryService {
-  private readonly API_URL = 'http://localhost:8080/api/';
+  private readonly API_URL = 'http://localhost:8080/api/categories';
 
   constructor(private httpClient: HttpClient) {
   }

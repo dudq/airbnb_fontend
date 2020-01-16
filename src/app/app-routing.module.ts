@@ -10,6 +10,7 @@ import {HomeListForGuestComponent} from './components/user/home-list-for-guest/h
 import {CategoryListComponent} from './category/category-list/category-list.component';
 import {CategoryCreateComponent} from './category/category-create/category-create.component';
 import {CategoryEditComponent} from './category/category-edit/category-edit.component';
+import {CategoryDeleteComponent} from './category/category-delete/category-delete.component';
 
 const routes: Routes = [
   {
@@ -49,8 +50,12 @@ const routes: Routes = [
     component: CategoryCreateComponent
   },
   {
-    path: 'category-edit',
+    path: 'category-edit/:id',
     component: CategoryEditComponent
+  },
+  {
+    path: 'category-delete/:id',
+    component: CategoryDeleteComponent
   }
 ];
 
