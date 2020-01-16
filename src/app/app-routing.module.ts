@@ -9,6 +9,7 @@ import {ListHouseOfHostComponent} from './components/host/list-house-of-host/lis
 import {HomeListForGuestComponent} from './components/user/home-list-for-guest/home-list-for-guest.component';
 import {CategoryListComponent} from './category/category-list/category-list.component';
 import {CategoryCreateComponent} from './category/category-create/category-create.component';
+import {CategoryEditComponent} from './category/category-edit/category-edit.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'category-create',
     component: CategoryCreateComponent
+  },
+  {
+    path: 'category-edit',
+    component: CategoryEditComponent
   },
   {
     path: 'register-host',

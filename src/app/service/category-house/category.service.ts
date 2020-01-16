@@ -23,4 +23,15 @@ export class CategoryService {
     return this.httpClient.post(this.API_URL, category);
   }
 
+  deleteCategory(id: number): Observable<any> {
+    return this.httpClient.delete(this.API_URL + '/' + id);
+  }
+
+  getCategory(id: number): Observable<any> {
+    return this.httpClient.get<any>(this.API_URL + '/' + id);
+  }
+
+  editCategory(category): Observable<any> {
+    return this.httpClient.put(this.API_URL + '/' + category.id, category);
+  }
 }
