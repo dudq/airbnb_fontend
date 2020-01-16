@@ -20,6 +20,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {CategoryCreateComponent} from './components/category/category-create/category-create.component';
 import {CategoryListComponent} from './components/category/category-list/category-list.component';
+import {CategoryEditComponent} from './components/category/category-edit/category-edit.component';
+import {CategoryDeleteComponent} from './components/category/category-delete/category-delete.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,8 @@ const routes: Routes = [
     HomeListForGuestComponent,
     CategoryCreateComponent,
     CategoryListComponent,
+    CategoryEditComponent,
+    CategoryDeleteComponent,
   ],
   imports: [
     BrowserModule,

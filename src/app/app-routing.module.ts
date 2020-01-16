@@ -9,6 +9,8 @@ import {ListHouseOfHostComponent} from './components/host/list-house-of-host/lis
 import {HomeListForGuestComponent} from './components/user/home-list-for-guest/home-list-for-guest.component';
 import {CategoryCreateComponent} from './components/category/category-create/category-create.component';
 import {CategoryListComponent} from './components/category/category-list/category-list.component';
+import {CategoryEditComponent} from './components/category/category-edit/category-edit.component';
+import {CategoryDeleteComponent} from './components/category/category-delete/category-delete.component';
 
 const routes: Routes = [
   {
@@ -47,14 +49,14 @@ const routes: Routes = [
     path: 'category-create',
     component: CategoryCreateComponent
   },
-  // {
-  //   path: 'category-edit/:id',
-  //   component: CategoryEditComponent
-  // },
-  // {
-  //   path: 'category-delete/:id',
-  //   component: CategoryDeleteComponent
-  // }
+  {
+    path: 'category-edit/:id',
+    component: CategoryEditComponent
+  },
+  {
+    path: 'category-delete/:id',
+    component: CategoryDeleteComponent
+  }
 ];
 
 @NgModule({

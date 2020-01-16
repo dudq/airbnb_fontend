@@ -1,0 +1,29 @@
+<h2>Category Delete</h2>
+<div *ngIf="category" class="col-6 offset-3">
+  <table class="table table-bordered">
+    <tr>
+      <td>Name:</td>
+      <td>{{category.name}}</td>
+    </tr>
+  </table>
+  <input class="btn btn-primary" data-target="#exampleModal" data-toggle="modal" value="Delete">
+  <input class="btn btn-primary" routerLink="/category-list" value="Back to category list">
+  <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog"
+       tabindex="-1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirm to delete</h5>
+          <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+            <span aria-hidden="true">X</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+          <button (click)="deleteCategory(category.id)" class="btn-primary" data-dismiss="modal" type="button">Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
