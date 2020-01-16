@@ -19,6 +19,7 @@ import {OrderModule} from 'ngx-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {CategoryCreateComponent} from './components/category/category-create/category-create.component';
+import {CategoryListComponent} from './components/category/category-list/category-list.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
     ListHouseOfHostComponent,
     HomeListForGuestComponent,
     CategoryCreateComponent,
+    CategoryListComponent,
   ],
   imports: [
     BrowserModule,

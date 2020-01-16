@@ -7,10 +7,8 @@ import {LoginComponent} from './components/login/login.component';
 import {AddHouseComponent} from './components/host/add-house/add-house.component';
 import {ListHouseOfHostComponent} from './components/host/list-house-of-host/list-house-of-host.component';
 import {HomeListForGuestComponent} from './components/user/home-list-for-guest/home-list-for-guest.component';
-import {CategoryListComponent} from './components/category/category-list/category-list.component';
 import {CategoryCreateComponent} from './components/category/category-create/category-create.component';
-import {CategoryEditComponent} from './components/category/category-edit/category-edit.component';
-import {CategoryDeleteComponent} from './components/category/category-delete/category-delete.component';
+import {CategoryListComponent} from './components/category/category-list/category-list.component';
 
 const routes: Routes = [
   {
@@ -49,14 +47,14 @@ const routes: Routes = [
     path: 'category-create',
     component: CategoryCreateComponent
   },
-  {
-    path: 'category-edit/:id',
-    component: CategoryEditComponent
-  },
-  {
-    path: 'category-delete/:id',
-    component: CategoryDeleteComponent
-  }
+  // {
+  //   path: 'category-edit/:id',
+  //   component: CategoryEditComponent
+  // },
+  // {
+  //   path: 'category-delete/:id',
+  //   component: CategoryDeleteComponent
+  // }
 ];
 
 @NgModule({
