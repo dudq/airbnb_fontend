@@ -17,16 +17,16 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'category-list',
-    component: CategoryListComponent
-  },
-  {
     path: 'login',
     component: LoginComponent
   },
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'register-host',
+    component: RegisterHostComponent
   },
   {
     path: 'add-house',
@@ -41,16 +41,16 @@ const routes: Routes = [
     component: HomeListForGuestComponent
   },
   {
+    path: 'category-list',
+    component: CategoryListComponent
+  },
+  {
     path: 'category-create',
     component: CategoryCreateComponent
   },
   {
     path: 'category-edit',
     component: CategoryEditComponent
-  },
-  {
-    path: 'register-host',
-    component: RegisterHostComponent
   }
 ];
 
