@@ -20,6 +20,11 @@ import {OrderModule} from 'ngx-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
+import {CategoryCreateComponent} from './category/category-create/category-create.component';
+import {CategoryEditComponent} from './category/category-edit/category-edit.component';
+import {CategoryDeleteComponent} from './category/category-delete/category-delete.component';
+import {CategoryListComponent} from './category/category-list/category-list.component';
+
 const routes: Routes = [
   {
     path: '', component: HomeComponent
@@ -38,7 +43,12 @@ const routes: Routes = [
     AddHouseComponent,
     ListHouseOfHostComponent,
     HomeListForGuestComponent,
-    CategoryHouseComponent
+    CategoryHouseComponent,
+    CategoryListComponent,
+    CategoryCreateComponent,
+    CategoryEditComponent,
+    CategoryDeleteComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
