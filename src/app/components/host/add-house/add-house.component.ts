@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import * as firebase from 'firebase';
 import {ICategory} from '../../category/iCategory';
+import {CategoryService} from '../../../service/category-house/category.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AddHouseComponent implements OnInit {
   form: any = {};
   house: CreateHouse;
   category: ICategory;
+  categoryList: ICategory[] = [];
   submitted = false;
   categorySelected: number;
 
@@ -30,6 +32,7 @@ export class AddHouseComponent implements OnInit {
   arrayPicture: string;
 
   constructor(private houseService: HouseService,
+              private categoryService: CategoryService,
               private token: TokenStorageService,
               private router: Router,
               private formBuilder: FormBuilder
@@ -68,9 +71,9 @@ export class AddHouseComponent implements OnInit {
   }
 
   private getCategoryList() {
-    this.houseService.getListCategory().subscribe(result => {
+    this.categoryService.getListCategory().subscribe(result => {
       // @ts-ignore
-      this.category = result;
+      this.categoryList = result;
     });
   }
 
