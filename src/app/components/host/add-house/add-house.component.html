@@ -26,8 +26,8 @@
           type="text" id="category"
           name="category"
           formControlName="category"
-          class="form-control">
-          <option *ngFor="let category of category.data" [value]="category.id">
+          class="form-control" required>
+          <option *ngFor="let category of categoryList" [defaultSelected]="categoryList[0]" [value]="category.id">
             {{category.name}}
           </option>
         </select>
