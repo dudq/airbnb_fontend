@@ -6,7 +6,7 @@ import {TokenStorageService} from '../../../auth/token-storage.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import * as firebase from 'firebase';
-import {CategoryHouse} from '../../../category-house/data-category/categoryHouse';
+import {ICategory} from '../../category/iCategory';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class AddHouseComponent implements OnInit {
   isSuccess = false;
   form: any = {};
   house: CreateHouse;
-  category: CategoryHouse;
+  category: ICategory;
   submitted = false;
   categorySelected: number;
 
