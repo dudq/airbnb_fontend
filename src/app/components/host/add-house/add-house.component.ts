@@ -61,7 +61,7 @@ export class AddHouseComponent implements OnInit {
       bathroomNumber: new FormControl('', [Validators.required, Validators.min(0)]),
       description: new FormControl(''),
       price: new FormControl('', [Validators.required, Validators.min(0)]),
-      area: new FormControl(''),
+      area: new FormControl('', [Validators.required, Validators.min(0)]),
       user: this.token.getUserId(),
     });
     console.log('>>>>get user now:' + this.token.getUserId());
