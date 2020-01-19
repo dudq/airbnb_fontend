@@ -29,6 +29,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AdminComponent} from './components/admin/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,7 @@ const routes: Routes = [
     CategoryListComponent,
     CategoryEditComponent,
     CategoryDeleteComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
