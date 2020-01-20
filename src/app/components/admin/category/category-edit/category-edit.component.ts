@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ICategory} from '../iCategory';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {CategoryService} from '../../../service/category-house/category.service';
+import {CategoryService} from '../../../../service/category-house/category.service';
 
 @Component({
   selector: 'app-category-edit',

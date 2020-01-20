@@ -6,8 +6,9 @@ import {TokenStorageService} from '../../../auth/token-storage.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import * as firebase from 'firebase';
-import {ICategory} from '../../category/iCategory';
+import {ICategory} from '../../admin/category/iCategory';
 import {CategoryService} from '../../../service/category-house/category.service';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 
 @Component({
@@ -29,13 +30,14 @@ export class AddHouseComponent implements OnInit {
   houseData: DataCreatedHouse;
 
   picture: string;
-  arrayPicture: string;
+  arrayPicture: string[] = [];
 
   constructor(private houseService: HouseService,
               private categoryService: CategoryService,
               private token: TokenStorageService,
               private router: Router,
-              private formBuilder: FormBuilder
+              private formBuilder: FormBuilder,
+              private fb: AngularFireDatabase
   ) {
   }
 
@@ -52,8 +54,8 @@ export class AddHouseComponent implements OnInit {
     console.log('token from Browser:' + this.info.token);
     this.houseForm = this.formBuilder.group({
       houseName: new FormControl('', Validators.required),
-      category: new FormControl(this.category),
-      picture: new FormControl(''),
+      category: new FormControl(this.category, Validators.required),
+      picture: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
       bedroomNumber: new FormControl('', [Validators.required, Validators.min(0)]),
       bathroomNumber: new FormControl('', [Validators.required, Validators.min(0)]),
@@ -80,9 +82,10 @@ export class AddHouseComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.houseData = this.houseForm.value;
-    this.arrayPicture = this.arrayPicture.trim();
+    // this.arrayPicture = this.arrayPicture.trim();
     this.houseData.picture = this.arrayPicture;
     console.log(this.houseData);
+    console.log(this.arrayPicture);
     const house = this.houseForm.value;
 
     // stop here if form is invalid
@@ -102,14 +105,15 @@ export class AddHouseComponent implements OnInit {
 
 
   uploadFile(event) {
-    this.arrayPicture = '';
+    // this.arrayPicture : String[] = [];
     console.log(event);
     const file = event.target.files;
     const metadata = {
       contentType: 'image/jpeg',
     };
     let i = 0;
-    while ( i < file.length ) {
+    console.log(this.arrayPicture);
+    while (i < file.length) {
       console.log('Outside ', i, file[i]);
       // @ts-ignore
       const uploadTask = firebase.storage().ref('img/' + file[i].name + Date.now()).put(file[i], metadata);
@@ -117,14 +121,17 @@ export class AddHouseComponent implements OnInit {
         firebase.storage.TaskEvent.STATE_CHANGED,
         (snapshot) => {
           const snap = snapshot as firebase.storage.UploadTaskSnapshot;
-          console.log(snap);
+          // console.log(snap);
         },
         (error) => {
           console.log(error);
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            this.arrayPicture += downloadURL + ' ';
+            // if (this.arrayPicture[i] != null) {
+            // }
+            this.arrayPicture[i - 1] = downloadURL;
+            console.log(this.arrayPicture);
           });
         });
       i++;

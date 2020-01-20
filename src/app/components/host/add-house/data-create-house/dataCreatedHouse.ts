@@ -1,5 +1,5 @@
 export class DataCreatedHouse {
-  constructor(houseName: string, category: number, picture: string, address: string, bedroomNumber: string, bathroomNumber: string, description: string, price: string, area: string, user: string) {
+  constructor(houseName: string, category: number, picture: string[], address: string, bedroomNumber: string, bathroomNumber: string, description: string, price: string, area: string, user: string) {
     this._houseName = houseName;
     this._category = category;
     this._picture = picture;
@@ -35,13 +35,13 @@ export class DataCreatedHouse {
   }
 
   // tslint:disable-next-line:variable-name
-  private _picture: string;
+  private _picture: string[];
 
-  get picture(): string {
+  get picture(): string[] {
     return this._picture;
   }
 
-  set picture(value: string) {
+  set picture(value: string[]) {
     this._picture = value;
   }
 

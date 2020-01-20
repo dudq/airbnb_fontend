@@ -18,10 +18,20 @@ import {HomeListForGuestComponent} from './components/user/home-list-for-guest/h
 import {OrderModule} from 'ngx-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import {CategoryCreateComponent} from './components/category/category-create/category-create.component';
-import {CategoryListComponent} from './components/category/category-list/category-list.component';
-import {CategoryEditComponent} from './components/category/category-edit/category-edit.component';
-import {CategoryDeleteComponent} from './components/category/category-delete/category-delete.component';
+import {CategoryCreateComponent} from './components/admin/category/category-create/category-create.component';
+import {CategoryListComponent} from './components/admin/category/category-list/category-list.component';
+import {CategoryEditComponent} from './components/admin/category/category-edit/category-edit.component';
+import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
+import {environment} from '../environments/environment';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AdminComponent} from './components/admin/admin/admin.component';
+import {LeftMenuComponent} from './components/admin/left-menu/left-menu.component';
+import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 
 const routes: Routes = [
   {
@@ -45,6 +55,9 @@ const routes: Routes = [
     CategoryListComponent,
     CategoryEditComponent,
     CategoryDeleteComponent,
+    AdminComponent,
+    LeftMenuComponent,
+    EditHouseComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +68,13 @@ const routes: Routes = [
     ReactiveFormsModule,
     OrderModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    ConfirmationPopoverModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
