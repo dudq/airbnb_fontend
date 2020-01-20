@@ -25,12 +25,9 @@ export class AddHouseComponent implements OnInit {
   category: ICategory;
   categoryList: ICategory[] = [];
   submitted = false;
-  categorySelected: number;
-
   houseData: DataCreatedHouse;
-
   picture: string;
-  arrayPicture: string[] = [];
+  arrayPicture: string[];
 
   constructor(private houseService: HouseService,
               private categoryService: CategoryService,
@@ -82,7 +79,6 @@ export class AddHouseComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.houseData = this.houseForm.value;
-    // this.arrayPicture = this.arrayPicture.trim();
     this.houseData.picture = this.arrayPicture;
     console.log(this.houseData);
     console.log(this.arrayPicture);
@@ -105,15 +101,15 @@ export class AddHouseComponent implements OnInit {
 
 
   uploadFile(event) {
-    // this.arrayPicture : String[] = [];
+
     console.log(event);
     const file = event.target.files;
     const metadata = {
       contentType: 'image/jpeg',
     };
-    let i = 0;
+    this.arrayPicture = [];
     console.log(this.arrayPicture);
-    while (i < file.length) {
+    for (let i = 0; i < file.length;) {
       console.log('Outside ', i, file[i]);
       // @ts-ignore
       const uploadTask = firebase.storage().ref('img/' + file[i].name + Date.now()).put(file[i], metadata);
@@ -121,7 +117,6 @@ export class AddHouseComponent implements OnInit {
         firebase.storage.TaskEvent.STATE_CHANGED,
         (snapshot) => {
           const snap = snapshot as firebase.storage.UploadTaskSnapshot;
-          // console.log(snap);
         },
         (error) => {
           console.log(error);
@@ -137,5 +132,4 @@ export class AddHouseComponent implements OnInit {
       i++;
     }
   }
-
 }
