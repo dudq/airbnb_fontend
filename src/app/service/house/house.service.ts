@@ -7,8 +7,8 @@ import {Observable} from 'rxjs';
 import {House} from '../../interface/house/house';
 import {HouseDetails} from '../../components/home-detail/houseDetails';
 import {DataCreatedHouse} from '../../components/host/add-house/data-create-house/dataCreatedHouse';
-import {HouseListOfHost} from '../../components/host/list-house-of-host/house-list-of-host/houseListOfHost';
 import {CategoryHouse2} from '../../interface/category-house';
+import {DataHouseListOfHost} from '../../components/host/list-house-of-host/house-list-of-host/dataHouseListOfHost';
 
 @Injectable({
   providedIn: 'root'
@@ -52,8 +52,8 @@ export class HouseService {
   }
 
 
-  public getListHouseOfHost(): Observable<HouseListOfHost> {
-    return this.httpClient.get<HouseListOfHost>(this.API_URL + 'host/houses');
+  public getListHouseOfHost(id: number): Observable<DataHouseListOfHost []> {
+    return this.httpClient.get<DataHouseListOfHost []>(this.API_URL + 'houses/host/' + id);
   }
 
   public getListCategory(): Observable<CategoryHouse2> {

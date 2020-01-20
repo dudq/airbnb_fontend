@@ -30,6 +30,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AdminComponent} from './components/admin/admin/admin.component';
+import {LeftMenuComponent} from './components/admin/left-menu/left-menu.component';
+import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 
 const routes: Routes = [
   {
@@ -54,6 +56,8 @@ const routes: Routes = [
     CategoryEditComponent,
     CategoryDeleteComponent,
     AdminComponent,
+    LeftMenuComponent,
+    EditHouseComponent,
   ],
   imports: [
     BrowserModule,

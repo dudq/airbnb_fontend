@@ -11,8 +11,13 @@ import {CategoryCreateComponent} from './components/admin/category/category-crea
 import {CategoryListComponent} from './components/admin/category/category-list/category-list.component';
 import {CategoryEditComponent} from './components/admin/category/category-edit/category-edit.component';
 import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
+import {AdminComponent} from './components/admin/admin/admin.component';
 
 const routes: Routes = [
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
   {
     path: 'home',
     component: HomeComponent
