@@ -1,19 +1,31 @@
 <h2>Category List</h2>
-<a href="/category-create">Creat Category</a>
-<table class="table table-hover border">
-  <thead>
-  <tr id="cat">
-    <th>Id</th>
-    <th>Name</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
+<!--<a href="/admin/category-create">Creat Category</a>-->
+<div class="row col-10 ml-2 float-left text-light">
+  <table class="table table-striped text-light">
+    <thead>
+    <tr id="cat">
+      <th class="mt-3">Id</th>
+      <th class="mt-3">Name</th>
+      <th colspan="2">
+        <a class="btn btn-success text-light" href="/admin/category-create">&nbsp;&nbsp;&nbsp;Add category&nbsp;&nbsp;&nbsp;</a>
+      </th>
+
+      <!--    <th class="mt-3">Edit</th>-->
+      <!--    <th>Delete</th>-->
+    </tr>
   </thead>
-  <tr *ngFor="let category of categoryList">
-    <td><a [routerLink]="['/category-detail',category.id]">{{category.id}}</a></td>
-    <td><a [routerLink]="['/category-detail',category.id]">{{category.name}}</a></td>
-    <!--    <td>{{category.book}}</td>-->
-    <td><a [routerLink]="['/category-edit',category.id]">Edit</a></td>
-    <td><a [routerLink]="['/category-delete',category.id]">Delete</a></td>
-  </tr>
-</table>
+    <tr *ngFor="let category of categoryList">
+      <td><a [routerLink]="['/category-detail',category.id]">{{category.id}}</a></td>
+      <td><a [routerLink]="['/category-detail',category.id]">{{category.name}}</a></td>
+      <td>
+        <a [routerLink]="['/category-delete',category.id]"
+           class="btn btn-danger text-light">Delete</a>
+        <a [routerLink]="['/category-edit',category.id]"
+           class="btn btn-primary text-light ml-4">Edit</a>
+      </td>
+      <!--    <td>{{category.book}}</td>-->
+      <!--    <td><a [routerLink]="['/category-edit',category.id]">Edit</a></td>-->
+      <!--    <td><a [routerLink]="['/category-delete',category.id]">Delete</a></td>-->
+    </tr>
+  </table>
+</div>

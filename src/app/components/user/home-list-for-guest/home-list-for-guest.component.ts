@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HouseConvert} from '../../../interface/house/houseConvert';
 import {TokenStorageService} from '../../../auth/token-storage.service';
 import {HouseService} from '../../../service/house/house.service';
@@ -40,7 +40,7 @@ export class HomeListForGuestComponent implements OnInit {
     //   this.house = result;
     //   console.log('>>>>House list:' + JSON.stringify(this.house));
     // });
-    this.house = this.houseService.convertHouseList();
+    // this.house = this.houseService.convertHouseList();
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.house.length; i++) {
       console.log(this.house[i]);
