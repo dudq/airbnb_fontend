@@ -8,6 +8,7 @@ import {CategoryListComponent} from './category/category-list/category-list.comp
 import {CategoryEditComponent} from './category/category-edit/category-edit.component';
 import {NgModule} from '@angular/core';
 import {CategoryDeleteComponent} from './category/category-delete/category-delete.component';
+import {HouseListComponent} from './house/house-list/house-list.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {CategoryDeleteComponent} from './category/category-delete/category-delet
     CategoryCreateComponent,
     CategoryListComponent,
     CategoryEditComponent,
-    CategoryDeleteComponent
+    CategoryDeleteComponent,
+    HouseListComponent
   ]
 })
 export class AdminModule {
