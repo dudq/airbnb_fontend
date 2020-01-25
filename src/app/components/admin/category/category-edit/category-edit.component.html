@@ -1,11 +1,11 @@
-<div class="col-6 offset-3">
+<div class="ml-2 row">
   <div *ngIf="message">
     <div class="alert alert-success">
       <strong>Success!</strong> You have edit a category
     </div>
     <div>
       <div class="form-group">
-        <input class="btn btn-primary btn-block" routerLink="/category-list" value="Back to category list">
+        <input class="btn btn-primary btn-block" routerLink="/admin/category-list" value="Back to category list">
       </div>
     </div>
   </div>
@@ -22,6 +22,6 @@
 
     <button class="btn btn-primary btn-block">Edit</button>
 
-    <button class="btn btn-primary btn-block">Cancel</button>
+    <button class="btn btn-primary btn-block" routerLink="/admin/category-list">Cancel</button>
   </form>
 </div>

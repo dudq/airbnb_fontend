@@ -1,5 +1,5 @@
 <h2>Category Delete</h2>
-<div *ngIf="category" class="col-6 offset-3">
+<div *ngIf="category" class="ml-2 row">
   <table class="table table-bordered">
     <tr>
       <td>Name:</td>
@@ -7,7 +7,7 @@
     </tr>
   </table>
   <input class="btn btn-primary" data-target="#exampleModal" data-toggle="modal" value="Delete">
-  <input class="btn btn-primary" routerLink="/category-list" value="Back to category list">
+  <input class="btn btn-primary" routerLink="/admin/category-list" value="Back to category list">
   <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog"
        tabindex="-1">
     <div class="modal-dialog" role="document">
