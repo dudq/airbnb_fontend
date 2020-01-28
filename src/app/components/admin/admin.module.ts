@@ -10,6 +10,7 @@ import {NgModule} from '@angular/core';
 import {CategoryDeleteComponent} from './category/category-delete/category-delete.component';
 import {HouseListComponent} from './house/house-list/house-list.component';
 import {HouseCreateComponent} from './house/house-create/house-create.component';
+import {HouseDetailComponent} from './house/house-detail/house-detail.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {HouseCreateComponent} from './house/house-create/house-create.component'
     CategoryEditComponent,
     CategoryDeleteComponent,
     HouseListComponent,
-    HouseCreateComponent
+    HouseCreateComponent,
+    HouseDetailComponent
   ]
 })
 export class AdminModule {
