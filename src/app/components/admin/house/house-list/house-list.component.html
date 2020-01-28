@@ -10,6 +10,9 @@
     <th scope="col">Area</th>
     <th scope="col">Host</th>
     <th scope="col">Status</th>
+    <th colspan="2">
+      <a [routerLink]="['/admin/house-create']" class="btn btn-success text-light">Add House</a>
+    </th>
   </tr>
   </thead>
   <tr *ngFor="let house of houseList "
@@ -22,7 +25,17 @@
     <th>{{house.price}}</th>
     <th>{{house.area}}</th>
     <th>{{house.user.name}}</th>
-    <!--    <th>{{houseItem.status}}</th>-->
+    <th>
+      <!--      {{house.status}}-->
+    </th>
+    <td>
+      <div>
+        <a [routerLink]="['/admin/house-edit',house.id]"
+           class="btn btn-danger text-light">Edit</a>
+        <a [routerLink]="['/admin/house-delete',house.id]"
+           class="btn btn-primary text-light ml-4">Delete</a>
+      </div>
+    </td>
   </tr>
 </table>
 <!--<div id="pagination">-->
