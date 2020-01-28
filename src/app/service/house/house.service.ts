@@ -35,7 +35,7 @@ export class HouseService {
   //   return houseList;
   // }
 
-  public getList(): Observable<IHouseDetail[]> {
+  public getHouseList(): Observable<IHouseDetail[]> {
     return this.httpClient.get<IHouseDetail[]>(this.API_URL + 'houses');
   }
 

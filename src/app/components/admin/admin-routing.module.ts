@@ -5,12 +5,22 @@ import {CategoryEditComponent} from './category/category-edit/category-edit.comp
 import {CategoryDeleteComponent} from './category/category-delete/category-delete.component';
 import {NgModule} from '@angular/core';
 import {AdminComponent} from './admin/admin.component';
+import {HouseListComponent} from './house/house-list/house-list.component';
 
 const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
     children: [
+      {
+        path: '',
+        redirectTo: '/house-list',
+        pathMatch: 'full'
+      },
+      {
+        path: 'house-list',
+        component: HouseListComponent
+      },
       {
         path: 'category-list',
         component: CategoryListComponent

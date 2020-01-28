@@ -1,6 +1,6 @@
-export interface IHouseDetail {
+export interface IHouse {
   id: number;
-  houseName: string;
+  name: string;
   category: any;
   picture: any[];
   address: string;

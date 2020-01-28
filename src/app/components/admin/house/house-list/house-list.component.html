@@ -1,1 +1,32 @@
-<p>house-list works!</p>
+<h2>House List</h2>
+<table *ngIf="houseList" class="table table-striped table-bordered">
+  <thead>
+  <tr class="text-light" style="text-align: center;   background-color: deepskyblue;">
+    <th scope="col">#ID</th>
+    <th scope="col">House Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Category</th>
+    <th scope="col">Price</th>
+    <th scope="col">Area</th>
+    <th scope="col">Host</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let house of houseList "
+      routerLink="/home/{{house.id}}/{{house.houseName}}" style="text-align: center">
+    <!--|    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">-->
+    <th scope="row">{{house.id}}</th>
+    <th>{{house.houseName}}</th>
+    <th>{{house.address}}</th>
+    <th>{{house.category.name}}</th>
+    <th>{{house.price}}</th>
+    <th>{{house.area}}</th>
+    <th>{{house.user.name}}</th>
+    <!--    <th>{{houseItem.status}}</th>-->
+  </tr>
+</table>
+<!--<div id="pagination">-->
+<!--  <pagination-controls (pageChange)="pageActual = $event"-->
+<!--  ></pagination-controls>-->
+<!--</div>-->
+<!--<router-outlet></router-outlet>-->
