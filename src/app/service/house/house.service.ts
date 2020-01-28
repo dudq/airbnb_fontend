@@ -44,8 +44,8 @@ export class HouseService {
   }
 
 
-  public addHouse(house: DataCreatedHouse): Observable<DataCreatedHouse> {
-    return this.httpClient.post<DataCreatedHouse>(this.API_URL + 'houses', house);
+  public addHouse(house: IHouseDetail): Observable<IHouseDetail> {
+    return this.httpClient.post<IHouseDetail>(this.API_URL + 'houses', house);
   }
 
   public editHouse(house): Observable<any> {

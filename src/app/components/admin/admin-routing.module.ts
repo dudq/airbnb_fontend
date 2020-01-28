@@ -6,6 +6,7 @@ import {CategoryDeleteComponent} from './category/category-delete/category-delet
 import {NgModule} from '@angular/core';
 import {AdminComponent} from './admin/admin.component';
 import {HouseListComponent} from './house/house-list/house-list.component';
+import {HouseCreateComponent} from './house/house-create/house-create.component';
 
 const adminRoutes: Routes = [
   {
@@ -20,6 +21,10 @@ const adminRoutes: Routes = [
       {
         path: 'house-list',
         component: HouseListComponent
+      },
+      {
+        path: 'house-create',
+        component: HouseCreateComponent
       },
       {
         path: 'category-list',
