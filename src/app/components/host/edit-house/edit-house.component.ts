@@ -1,22 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import * as firebase from 'firebase';
-import {IHouseDetail} from '../../../../interface/house/houseDetail';
-import {ICategory} from '../../category/iCategory';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {HouseService} from '../../../../service/house/house.service';
-import {CategoryService} from '../../../../service/category-house/category.service';
-import {TokenStorageService} from '../../../../auth/token-storage.service';
+import {ICategory} from '../../admin/category/iCategory';
+import {HouseService} from '../../../service/house/house.service';
+import {CategoryService} from '../../../service/category-house/category.service';
+import {TokenStorageService} from '../../../auth/token-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AngularFireDatabase} from '@angular/fire/database';
-import {Picture} from '../../../../interface/picture';
+import {IHouseDetail} from '../../../interface/house/houseDetail';
+import {Picture} from '../../../interface/picture';
+import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-house-edit',
-  templateUrl: './house-edit.component.html',
-  styleUrls: ['./house-edit.component.css']
+  selector: 'app-edit-house',
+  templateUrl: './edit-house.component.html',
+  styleUrls: ['./edit-house.component.css']
 })
-export class HouseEditComponent implements OnInit {
-
+export class EditHouseComponent implements OnInit {
   isSuccess = false;
   form: any = {};
   house: IHouseDetail;
@@ -62,8 +61,8 @@ export class HouseEditComponent implements OnInit {
     this.houseForm = this.formBuilder.group({
       id: '',
       houseName: new FormControl('', Validators.required),
-      category: new FormControl(this.category, Validators.required),
-      picture: new FormControl('', Validators.required),
+      // category: new FormControl( Validators.required),
+      // picture: new FormControl ('', Validators.required),
       address: new FormControl('', Validators.required),
       bedroomNumber: new FormControl('', [Validators.required, Validators.min(0)]),
       bathroomNumber: new FormControl('', [Validators.required, Validators.min(0)]),
@@ -78,27 +77,23 @@ export class HouseEditComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.house = this.houseForm.value;
-    if (this.arrayPicture.length !== 0) {
-      this.house.picture = this.arrayPicture;
-    } else {
-      this.house.picture = this.picture;
-    }
+    this.house.picture = this.picture;
     console.log(this.house);
-    this.house.category = this.category;
     // console.log(this.arrayPicture);
-    // const house = this.houseForm.value;
+    const house = this.houseForm.value;
 
     // stop here if form is invalid
-    if (this.houseForm.invalid) {
-      return this.houseService.editHouse(this.house).subscribe(result => {
-        this.isSuccess = false;
-      });
-    } else {
-      this.houseService.editHouse(this.house).subscribe(result => {
-        this.isSuccess = true;
-        alert('SUCCESS!!!');
-      });
-    }
+    // if (this.houseForm.invalid) {
+    //   return this.houseService.editHouse(this.house).subscribe(result => {
+    //     this.isSuccess = false;
+    //     // this.router.navigate(['/home/house-list-for-guest']);
+    //   });
+    // } else {
+    //   this.houseService.addHouse(house).subscribe(result => {
+    //     this.isSuccess = true;
+    //   });
+    // }
+    // alert('SUCCESS!! :-)');
   }
 
   uploadFile(event) {

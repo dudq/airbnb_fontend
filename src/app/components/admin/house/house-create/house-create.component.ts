@@ -81,7 +81,7 @@ export class HouseCreateComponent implements OnInit {
     } else {
       this.houseService.addHouse(house).subscribe(result => {
         this.isSuccess = true;
-        alert('SUCCESS!! :-)');
+        alert('SUCCESS!!!');
       });
     }
   }

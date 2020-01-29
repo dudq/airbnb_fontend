@@ -1,10 +1,11 @@
 <div class="container">
   <div *ngIf="isSuccess" class="alert alert-success" role="alert">
-    Edit house successfully!
+    Sửa thông tin thành công!
   </div>
   <fieldset>
     <legend>Edit house</legend>
-    <form (ngSubmit)="onSubmit()" [formGroup]="houseForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="houseForm" style="border: 4px solid #DF4B3B">
+
 
       <div class="form-group">
         <label>House Name</label>
@@ -13,7 +14,7 @@
                formControlName="houseName"
                type="text">
         <div *ngIf="submitted && houseForm.get('houseName').invalid" class="invalid-feedback">
-          <div *ngIf="f.houseName.errors.required">House's name not empty</div>
+          <div *ngIf="f.houseName.errors.required">Tên nhà không được để trống</div>
         </div>
       </div>
 
@@ -41,7 +42,7 @@
       <div class="form-group">
         <div *ngIf="picture" class="image-preview">
           <div *ngFor="let preview of picture" class="float-left">
-            <img [src]="preview.url" height="100"/>&nbsp;
+            <img [src]="preview.url" height="100"/>
           </div>
           <div></div>
         </div>

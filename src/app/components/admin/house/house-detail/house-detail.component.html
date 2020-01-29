@@ -40,14 +40,14 @@
             <span class="review-no">41 reviews</span>
           </div>
           <p class="product-description">{{house.description}}</p>
-          <h4 class="price">current price:<span style="margin-left: 10px">{{house.price}}</span></h4>
+          <h4 class="price">Price:<span style="margin-left: 10px">{{house.price}} USD</span></h4>
           <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
           <h5 class="sizes">Category:
             <span class="size" data-toggle="tooltip" title="small">{{house.category.name}}</span>
           </h5>
           <div class="colors" routerLink="/home">Host: <label> {{house.user.name}}</label>
             <div class="action">
-              <!--            *ngIf="athority === 'user'" -->
+              <!--            *ngIf="authority === 'user'" -->
               <button class="add-to-cart btn btn-warning" routerLink="">Booking now</button>
               <button class="btn btn-warning" type="button"><span class="fa fa-heart"></span></button>
             </div>

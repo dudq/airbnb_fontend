@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HouseConvertById} from '../../interface/house/houseConvertById';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {DataCreatedHouse} from '../../components/host/add-house/data-create-house/dataCreatedHouse';
 import {CategoryHouse2} from '../../interface/category-house';
 import {DataHouseListOfHost} from '../../components/host/list-house-of-host/house-list-of-host/dataHouseListOfHost';
 import {IHouseDetail} from '../../interface/house/houseDetail';
@@ -48,8 +47,8 @@ export class HouseService {
     return this.httpClient.post<IHouseDetail>(this.API_URL + 'houses', house);
   }
 
-  public editHouse(house): Observable<any> {
-    return this.httpClient.put<DataCreatedHouse>(this.API_URL + '/houses/' + house.id, house);
+  public editHouse(house: IHouseDetail): Observable<any> {
+    return this.httpClient.put<IHouseDetail>(this.API_URL + 'houses', house);
   }
 
   public getListHouseOfHost(id: number): Observable<DataHouseListOfHost []> {
