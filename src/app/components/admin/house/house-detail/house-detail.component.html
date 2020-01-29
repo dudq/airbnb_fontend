@@ -48,7 +48,9 @@
           <div class="colors" routerLink="/home">Host: <label> {{house.user.name}}</label>
             <div class="action">
               <!--            *ngIf="authority === 'user'" -->
-              <button class="add-to-cart btn btn-warning" routerLink="">Booking now</button>
+              <button class="add-to-cart btn btn-warning" routerLink="/admin/house-booking-create/{{house.id}}">Booking
+                now
+              </button>
               <button class="btn btn-warning" type="button"><span class="fa fa-heart"></span></button>
             </div>
           </div>

@@ -9,6 +9,7 @@ import {HouseListComponent} from './house/house-list/house-list.component';
 import {HouseCreateComponent} from './house/house-create/house-create.component';
 import {HouseDetailComponent} from './house/house-detail/house-detail.component';
 import {HouseEditComponent} from './house/house-edit/house-edit.component';
+import {HouseBookingCreateComponent} from './house-booking/house-booking-create/house-booking-create.component';
 
 const adminRoutes: Routes = [
   {
@@ -35,6 +36,10 @@ const adminRoutes: Routes = [
       {
         path: 'house-edit/:id',
         component: HouseEditComponent
+      },
+      {
+        path: 'house-booking-create/:id',
+        component: HouseBookingCreateComponent
       },
       {
         path: 'category-list',
