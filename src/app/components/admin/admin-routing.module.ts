@@ -28,7 +28,7 @@ const adminRoutes: Routes = [
         component: HouseCreateComponent
       },
       {
-        path: 'house-detail',
+        path: 'house-detail/:id',
         component: HouseDetailComponent
       },
       {

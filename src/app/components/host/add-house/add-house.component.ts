@@ -86,10 +86,10 @@ export class AddHouseComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.houseForm.invalid) {
-      return this.houseService.addHouse(this.houseData).subscribe(result => {
-        this.isSuccess = false;
-        // this.router.navigate(['/home/house-list-for-guest']);
-      });
+      // return this.houseService.addHouse(this.houseData).subscribe(result => {
+      //   this.isSuccess = false;
+      //   // this.router.navigate(['/home/house-list-for-guest']);
+      // });
     } else {
       this.houseService.addHouse(house).subscribe(result => {
         this.isSuccess = true;
