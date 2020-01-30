@@ -10,14 +10,15 @@
   </tr>
   </thead>
   <tbody>
-  <tr routerLink="/home/{{houseItem.id}}/{{houseItem.name}}" class="table-bordered" style="text-align: center" *ngFor="let houseItem of houseListOfHost.data |
-    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">
-    <th  scope="row">{{houseItem.id}}</th>
+  <tr *ngFor="let houseItem of houseListOfHost " class="table-bordered"
+      routerLink="/home/{{houseItem.id}}/{{houseItem.name}}" style="text-align: center">
+    <!--|    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">-->
+    <th scope="row">{{houseItem.id}}</th>
     <th>{{houseItem.name}}</th>
     <th>{{houseItem.address}}</th>
     <th>{{houseItem.categoryName}}</th>
     <th>{{houseItem.price}}</th>
-    <th>{{houseItem.status}}</th>
+    <!--    <th>{{houseItem.status}}</th>-->
   </tr>
   </tbody>
 </table>

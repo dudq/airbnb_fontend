@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HouseConvertById} from '../../interface/house/houseConvertById';
 import {HttpClient} from '@angular/common/http';
 import {HouseConvert} from '../../interface/house/houseConvert';
@@ -7,8 +7,8 @@ import {Observable} from 'rxjs';
 import {House} from '../../interface/house/house';
 import {HouseDetails} from '../../components/home-detail/houseDetails';
 import {DataCreatedHouse} from '../../components/host/add-house/data-create-house/dataCreatedHouse';
-import {HouseListOfHost} from '../../components/host/list-house-of-host/house-list-of-host/houseListOfHost';
 import {CategoryHouse2} from '../../interface/category-house';
+import {DataHouseListOfHost} from '../../components/host/list-house-of-host/house-list-of-host/dataHouseListOfHost';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class HouseService {
   private readonly API_URL = 'http://localhost:8080/api/';
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   public convertHouseList(): HouseConvert[] {
     let houseList: HouseConvert[] = [];
@@ -46,14 +47,13 @@ export class HouseService {
   }
 
 
-
   public addHouse(house: DataCreatedHouse): Observable<DataCreatedHouse> {
     return this.httpClient.post<DataCreatedHouse>(this.API_URL + 'host/houses', house);
   }
 
 
-  public getListHouseOfHost(): Observable<HouseListOfHost> {
-    return this.httpClient.get<HouseListOfHost>(this.API_URL + 'host/houses');
+  public getListHouseOfHost(id: number): Observable<DataHouseListOfHost []> {
+    return this.httpClient.get<DataHouseListOfHost []>(this.API_URL + 'houses/host/' + id);
   }
 
   public getListCategory(): Observable<CategoryHouse2> {

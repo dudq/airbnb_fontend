@@ -1,11 +1,11 @@
 export class DataHouseListOfHost {
-  constructor(id: number, name: string, address: number, categoryName: string, price: string, status: string) {
+  constructor(id: number, name: string, categoryName: string, address: string, price: string) {
     this._id = id;
     this._name = name;
     this._address = address;
     this._categoryName = categoryName;
     this._price = price;
-    this._status = status;
+    // this._status = status;
   }
 
   private _id: number;
@@ -28,13 +28,13 @@ export class DataHouseListOfHost {
     this._name = value;
   }
 
-  private _address: number;
+  private _address: string;
 
-  get address(): number {
+  get address(): string {
     return this._address;
   }
 
-  set address(value: number) {
+  set address(value: string) {
     this._address = value;
   }
 
@@ -58,13 +58,13 @@ export class DataHouseListOfHost {
     this._price = value;
   }
 
-  private _status: string;
-
-  get status(): string {
-    return this._status;
-  }
-
-  set status(value: string) {
-    this._status = value;
-  }
+  // private _status: any;
+  //
+  // get status(): any {
+  //   return this._status;
+  // }
+  //
+  // set status(value: any) {
+  //   this._status = value;
+  // }
 }
