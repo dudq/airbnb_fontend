@@ -22,6 +22,7 @@ import {CategoryCreateComponent} from './components/category/category-create/cat
 import {CategoryListComponent} from './components/category/category-list/category-list.component';
 import {CategoryEditComponent} from './components/category/category-edit/category-edit.component';
 import {CategoryDeleteComponent} from './components/category/category-delete/category-delete.component';
+import {UserBookingComponent} from './components/user/user-booking/user-booking.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
     CategoryListComponent,
     CategoryEditComponent,
     CategoryDeleteComponent,
+    UserBookingComponent,
   ],
   imports: [
     BrowserModule,
