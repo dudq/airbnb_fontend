@@ -13,12 +13,12 @@ export class HouseBookingService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getHouseList(): Observable<IHouseBooking[]> {
-    return this.httpClient.get<IHouseBooking[]>(this.API_URL);
+  public getHouseList(): Observable<ResponseMessage> {
+    return this.httpClient.get<ResponseMessage>(this.API_URL);
   }
 
-  public getHouseId(id: number): Observable<IHouseBooking> {
-    return this.httpClient.get<IHouseBooking>(this.API_URL + id);
+  public getHouseId(id: number): Observable<ResponseMessage> {
+    return this.httpClient.get<ResponseMessage>(this.API_URL + id);
   }
 
 
