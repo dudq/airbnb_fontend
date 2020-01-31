@@ -31,7 +31,9 @@ export class HouseBookingCreateComponent implements OnInit {
   house: IHouseDetail;
   user: any;
   houseBooking: IHouseBooking;
-  message = false;
+  isSubmited = false;
+  isSuccess: boolean;
+  message: string;
   now = new Date().toISOString().substring(0, 10);
   private info: any;
 
@@ -65,14 +67,16 @@ export class HouseBookingCreateComponent implements OnInit {
       console.log('>>>' + JSON.stringify(this.houseBooking));
 
       this.houseBookingService.addHouse(this.houseBooking).subscribe(
-        next => {
-          console.log(next);
-          this.message = true;
+        result => {
+          this.isSuccess = result.success;
+          this.message = result.message;
           this.ngOnInit();
         }
       );
     } else {
+      this.isSuccess = false;
       console.log('error');
     }
+    this.isSubmited = true;
   }
 }

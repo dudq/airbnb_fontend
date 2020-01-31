@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IHouseBooking} from '../../interface/housebooking';
+import {ResponseMessage} from '../../interface/ResponseMessage';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class HouseBookingService {
   }
 
 
-  public addHouse(houseBooking: IHouseBooking): Observable<IHouseBooking> {
-    return this.httpClient.post<IHouseBooking>(this.API_URL, houseBooking);
+  public addHouse(houseBooking: IHouseBooking): Observable<ResponseMessage> {
+    return this.httpClient.post<ResponseMessage>(this.API_URL, houseBooking);
   }
 }

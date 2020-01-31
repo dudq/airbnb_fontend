@@ -1,7 +1,7 @@
 <div class="container">
-  <div *ngIf="message" class="container col-8">
+  <div *ngIf="isSuccess && isSubmited" class="container col-8">
     <div class="alert alert-success text-center">
-      <strong>Success!</strong> You have booking successfully
+      <strong>Success!</strong> {{message}}
     </div>
     <div>
       <div class="form-group">
@@ -10,8 +10,13 @@
       </div>
     </div>
   </div>
+  <div *ngIf="!isSuccess && isSubmited" class="container col-8">
+    <div class="alert alert-danger text-center">
+      <strong>Fail !</strong> {{message}}
+    </div>
+  </div>
   <form (ngSubmit)="bookingForm.valid && onSubmit()"
-        *ngIf="!message"
+        *ngIf="!isSuccess"
         [formGroup]="bookingForm"
         name="form"
         novalidate>
