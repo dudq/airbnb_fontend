@@ -32,7 +32,7 @@ import {HouseBookingCreateComponent} from './house-booking/house-booking-create/
     HouseCreateComponent,
     HouseDetailComponent,
     HouseEditComponent,
-    HouseBookingCreateComponent
+    HouseBookingCreateComponent,
   ]
 })
 export class AdminModule {

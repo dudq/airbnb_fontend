@@ -7,7 +7,7 @@ import {IHouseBooking} from '../../interface/housebooking';
   providedIn: 'root'
 })
 export class HouseBookingService {
-  private readonly API_URL = 'http://localhost:8080/api/order-house';
+  private readonly API_URL = 'http://localhost:8080/api/order-houses';
 
   constructor(private httpClient: HttpClient) {
   }
