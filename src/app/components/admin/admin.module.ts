@@ -14,6 +14,7 @@ import {HouseDetailComponent} from './house/house-detail/house-detail.component'
 import {HouseEditComponent} from './house/house-edit/house-edit.component';
 import {HouseBookingCreateComponent} from './house-booking/house-booking-create/house-booking-create.component';
 import {HouseBookingListComponent} from './house-booking/house-booking-list/house-booking-list.component';
+import {HouseBookingItemComponent} from './house-booking/house-booking-item/house-booking-item.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import {HouseBookingListComponent} from './house-booking/house-booking-list/hous
     HouseEditComponent,
     HouseBookingCreateComponent,
     HouseBookingListComponent,
+    HouseBookingItemComponent,
   ]
 })
 export class AdminModule {

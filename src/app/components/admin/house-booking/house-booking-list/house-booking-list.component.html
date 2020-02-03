@@ -1,47 +1,49 @@
 <div class="container">
   <h2>House Booked List</h2>
-  <table *ngIf="houseBookedList" class="table table-striped table-bordered col-10">
-    <thead>
-    <tr class="text-light" style="text-align: center;   background-color: deepskyblue;">
-      <th scope="col">#ID</th>
-      <th scope="col">House Name</th>
-      <th scope="col">Host Of House</th>
-      <th scope="col">Check In</th>
-      <th scope="col">Check Out</th>
-      <th scope="col">User Booking</th>
-      <th scope="col">Status</th>
-    </tr>
-    </thead>
-    <tr *ngFor="let houseBooked of houseBookedList; index as i"
-        style="text-align: center">
-      <!--|    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">-->
-      <th scope="row">{{i + 1}}</th>
-      <th><a routerLink="/admin/house-detail/{{houseBooked.house.id}}">{{houseBooked.house.houseName}}</a></th>
-      <th>{{houseBooked.house.user.name}}</th>
-      <th type="date">{{houseBooked.dateCheckIn | date:'dd/MM/yyyy'}}</th>
-      <th>{{houseBooked.dateCheckOut| date:'dd/MM/yyyy'}}</th>
-      <th>{{houseBooked.user.name}}</th>
-      <th>{{houseBooked.status}}</th>
-      <th>
-        <div>
-          <button (click)="checkIn(houseBooked.id)"
-                  *ngIf="houseBooked.status == 'BOOKING' && currentUser.id == houseBooked.house.user.id "
-                  class="btn btn-danger text-light">CheckIn
-          </button>
-          <button (click)="checkOut(houseBooked.id)"
-                  *ngIf="houseBooked.status == 'CHECKIN' && currentUser.id == houseBooked.house.user.id"
-                  class="btn btn-danger text-light">CheckOut
-          </button>
-        </div>
-        <div>
-          <button (click)="cancelHouseBooking(houseBooked.id)"
-                  *ngIf="houseBooked.status == 'BOOKING' && currentUser.id == houseBooked.user.id"
-                  class="btn btn-danger text-light">Cancel
-          </button>
-        </div>
-      </th>
-    </tr>
-  </table>
+  <app-house-booking-item [currentUser]="currentUser" [houseBookedList]="houseBookedList" class="flex-fill">
+  </app-house-booking-item>
+  <!--  <table *ngIf="houseBookedList" class="table table-striped table-bordered col-10">-->
+  <!--    <thead>-->
+  <!--    <tr class="text-light" style="text-align: center;   background-color: deepskyblue;">-->
+  <!--      <th>#ID</th>-->
+  <!--      <th scope="col">House Name</th>-->
+  <!--      <th scope="col">Host Of House</th>-->
+  <!--      <th scope="col">Check In</th>-->
+  <!--      <th scope="col">Check Out</th>-->
+  <!--      <th scope="col">User Booking</th>-->
+  <!--      <th scope="col">Status</th>-->
+  <!--    </tr>-->
+  <!--    </thead>-->
+  <!--    <tr *ngFor="let houseBooked of houseBookedList; index as i"-->
+  <!--        style="text-align: center">-->
+
+  <!--      <th scope="row">{{i + 1}}</th>-->
+  <!--      <th><a routerLink="/admin/house-detail/{{houseBooked.house.id}}">{{houseBooked.house.houseName}}</a></th>-->
+  <!--      <th>{{houseBooked.house.user.name}}</th>-->
+  <!--      <th type="date">{{houseBooked.dateCheckIn | date:'dd/MM/yyyy'}}</th>-->
+  <!--      <th>{{houseBooked.dateCheckOut| date:'dd/MM/yyyy'}}</th>-->
+  <!--      <th>{{houseBooked.user.name}}</th>-->
+  <!--      <th>{{houseBooked.status}}</th>-->
+  <!--      <th>-->
+  <!--        <div>-->
+  <!--          <button (click)="checkIn(houseBooked.id)"-->
+  <!--                  *ngIf="houseBooked.status == 'BOOKING' && currentUser.id == houseBooked.house.user.id "-->
+  <!--                  class="btn btn-danger text-light">CheckIn-->
+  <!--          </button>-->
+  <!--          <button (click)="checkOut(houseBooked.id)"-->
+  <!--                  *ngIf="houseBooked.status == 'CHECKIN' && currentUser.id == houseBooked.house.user.id"-->
+  <!--                  class="btn btn-danger text-light">CheckOut-->
+  <!--          </button>-->
+  <!--        </div>-->
+  <!--        <div>-->
+  <!--          <button (click)="cancelHouseBooking(houseBooked.id)"-->
+  <!--                  *ngIf="houseBooked.status == 'BOOKING' && currentUser.id == houseBooked.user.id"-->
+  <!--                  class="btn btn-danger text-light">Cancel-->
+  <!--          </button>-->
+  <!--        </div>-->
+  <!--      </th>-->
+  <!--    </tr>-->
+  <!--  </table>-->
   <!--<div id="pagination">-->
   <!--  <pagination-controls (pageChange)="pageActual = $event"-->
   <!--  ></pagination-controls>-->

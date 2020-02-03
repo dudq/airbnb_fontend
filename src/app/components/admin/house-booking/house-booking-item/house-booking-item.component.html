@@ -1,0 +1,43 @@
+<table *ngIf="houseBookedList" class="table table-striped table-bordered col-md-10 col-10">
+  <thead>
+  <tr class="text-light" style="text-align: center;   background-color: deepskyblue;">
+    <th>#ID</th>
+    <th scope="col">House Name</th>
+    <th scope="col">Host Of House</th>
+    <th scope="col">Check In</th>
+    <th scope="col">Check Out</th>
+    <th scope="col">User Booking</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let houseBooked of houseBookedList; index as i"
+      style="text-align: center">
+    <td>{{i + 1}}</td>
+    <td><a routerLink="/admin/house-detail/{{houseBooked.house.id}}">{{houseBooked.house.houseName}}</a></td>
+    <td>{{houseBooked.house.user.name}}</td>
+    <td>{{houseBooked.dateCheckIn | date:'dd/MM/yyyy'}}</td>
+    <td>{{houseBooked.dateCheckOut| date:'dd/MM/yyyy'}}</td>
+    <td>{{houseBooked.user.name}}</td>
+    <td>{{houseBooked.status}}</td>
+    <td>
+      <div>
+        <button (click)="checkIn(houseBooked.id)"
+                *ngIf="houseBooked.status == 'BOOKING' && currentUser.id == houseBooked.house.user.id "
+                class="btn btn-danger text-light">CheckIn
+        </button>
+        <button (click)="checkOut(houseBooked.id)"
+                *ngIf="houseBooked.status == 'CHECKIN' && currentUser.id == houseBooked.house.user.id"
+                class="btn btn-danger text-light">CheckOut
+        </button>
+      </div>
+      <div>
+        <button (click)="cancelHouseBooking(houseBooked.id)"
+                *ngIf="houseBooked.status == 'BOOKING' && currentUser.id == houseBooked.user.id"
+                class="btn btn-danger text-light">Cancel
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

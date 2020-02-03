@@ -14,7 +14,6 @@ export class HouseBookingListComponent implements OnInit {
   message: string;
   isSuccess: boolean;
   currentUser: Info = {};
-  isCancel: boolean;
 
   constructor(private houseBookingService: HouseBookingService,
               private token: TokenStorageService) {
@@ -25,42 +24,12 @@ export class HouseBookingListComponent implements OnInit {
     this.houseBookingService.getHouseList().subscribe(
       result => {
         this.isSuccess = result.success;
-        this.message = result.message;
         if (result.success) {
           this.houseBookedList = result.data;
         }
       }, error => {
         this.isSuccess = false;
         this.message = 'Something error ?';
-      }
-    );
-  }
-
-  checkIn(id: number) {
-    this.houseBookingService.checkIn(id).subscribe(
-      result => {
-        this.message = result.message;
-        this.ngOnInit();
-      }
-    );
-  }
-
-  checkOut(id: number) {
-    this.houseBookingService.checkOut(id).subscribe(
-      result => {
-        this.message = result.message;
-        this.ngOnInit();
-      }
-    );
-  }
-
-  cancelHouseBooking(id: number) {
-    this.houseBookingService.cancel(id).subscribe(
-      result => {
-        this.isCancel = result.success;
-        this.message = result.message;
-        alert(result.message);
-        this.ngOnInit();
       }
     );
   }
