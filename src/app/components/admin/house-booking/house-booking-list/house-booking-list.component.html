@@ -15,26 +15,26 @@
       <!--      </th>-->
     </tr>
     </thead>
-    <tr *ngFor="let houseBooked of houseBookedList; i as index"
+    <tr *ngFor="let houseBooked of houseBookedList; index as i"
         style="text-align: center">
       <!--|    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">-->
-      <th scope="row">{{index}}</th>
+      <th scope="row">{{i + 1}}</th>
       <th><a routerLink="/admin/house-detail/{{houseBooked.house.id}}">{{houseBooked.house.houseName}}</a></th>
-      <th>{{houseBooked.house.user.name}}</th>
-      <th>{{houseBooked.dateCheckIn}}</th>
-      <th>{{houseBooked.dateCheckOut}}</th>
-      <th>{{houseBooked.user.name}}</th>
+      <th>{{houseBooked.house.user.id}}</th>
+      <th type="date">{{houseBooked.dateCheckIn | date:'dd/MM/yyyy'}}</th>
+      <th>{{houseBooked.dateCheckOut| date:'dd/MM/yyyy'}}</th>
+      <th>{{houseBooked.user.id}}</th>
       <th>{{houseBooked.status}}</th>
       <!--      <th>-->
       <!--              {{house.status}}-->
       <!--      </th>-->
       <td>
-        <div>
-          <a [routerLink]="['/admin/house-edit',house.id]"
-             class="btn btn-danger text-light">Edit</a>
-          <a [routerLink]="['/admin/house-delete',house.id]"
-             class="btn btn-primary text-light ml-4">Delete</a>
-        </div>
+        <!--        <div>-->
+        <!--          <a [routerLink]="['/admin/house-edit',house.id]"-->
+        <!--             class="btn btn-danger text-light">Edit</a>-->
+        <!--          <a [routerLink]="['/admin/house-delete',house.id]"-->
+        <!--             class="btn btn-primary text-light ml-4">Delete</a>-->
+        <!--        </div>-->
       </td>
     </tr>
   </table>
