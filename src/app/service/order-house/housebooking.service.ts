@@ -25,4 +25,16 @@ export class HouseBookingService {
   public addHouse(houseBooking: IHouseBooking): Observable<ResponseMessage> {
     return this.httpClient.post<ResponseMessage>(this.API_URL, houseBooking);
   }
+
+  public checkIn(id: number): Observable<ResponseMessage> {
+    return this.httpClient.put<ResponseMessage>(this.API_URL + '/checkin/' + id, null);
+  }
+
+  public checkOut(id: number): Observable<ResponseMessage> {
+    return this.httpClient.put<ResponseMessage>(this.API_URL + '/checkout/' + id, null);
+  }
+
+  public cancel(id: number): Observable<ResponseMessage> {
+    return this.httpClient.put<ResponseMessage>(this.API_URL + '/cancel/' + id, null);
+  }
 }
