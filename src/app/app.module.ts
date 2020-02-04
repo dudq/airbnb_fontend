@@ -27,8 +27,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 import {AdminModule} from './components/admin/admin.module';
-import {AboutComponent} from './about/about.component';
-import {ContactComponent} from './contact/contact.component';
+import {AboutComponent} from './components/about/about.component';
+import {ContactComponent} from './components/contact/contact.component';
 
 const routes: Routes = [
   {
