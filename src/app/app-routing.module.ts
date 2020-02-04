@@ -13,6 +13,8 @@ import {CategoryEditComponent} from './components/admin/category/category-edit/c
 import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
 import {AdminComponent} from './components/admin/admin/admin.component';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
+import {AboutComponent} from "./about/about.component";
+import {ContactComponent} from "./contact/contact.component";
 
 const routes: Routes = [
   {
@@ -66,6 +68,14 @@ const routes: Routes = [
   {
     path: 'category-delete/:id',
     component: CategoryDeleteComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   }
 ];
 
