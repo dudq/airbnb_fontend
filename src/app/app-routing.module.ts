@@ -15,11 +15,14 @@ import {AdminComponent} from './components/admin/admin/admin.component';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 import {AboutComponent} from './components/public/about/about.component';
 import {ContactComponent} from './components/public/contact/contact.component';
+import {AdminGuardService} from './auth/guard/AdminGuardService';
+import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
 
 const routes: Routes = [
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [AdminGuardService]
   },
   {
     path: 'home',
@@ -41,6 +44,10 @@ const routes: Routes = [
   {
     path: 'register-host',
     component: RegisterHostComponent
+  },
+  {
+    path: 'houses',
+    component: PublicHouseListComponent
   },
   {
     path: 'add-house',
