@@ -27,6 +27,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 import {AdminModule} from './components/admin/admin.module';
+import {AboutComponent} from './about/about.component';
+import {ContactComponent} from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,8 @@ const routes: Routes = [
     // AdminComponent,
     // LeftMenuComponent,
     EditHouseComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
