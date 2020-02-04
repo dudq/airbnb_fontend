@@ -11,9 +11,7 @@ import {CategoryService} from '../../../../service/category-house/category.servi
 })
 export class CategoryCreateComponent implements OnInit {
   categoryForm: FormGroup;
-  public useFile: any = File;
   category: ICategory;
-  previewUrl: any = null;
   message = false;
 
   constructor(private categoryService: CategoryService,
@@ -26,8 +24,6 @@ export class CategoryCreateComponent implements OnInit {
       id: '',
       name: ['', [Validators.required, Validators.minLength(1)]],
     });
-    this.useFile = null;
-    this.previewUrl = null;
   }
 
   onSubmit() {

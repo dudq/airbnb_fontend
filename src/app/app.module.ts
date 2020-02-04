@@ -18,10 +18,6 @@ import {HomeListForGuestComponent} from './components/user/home-list-for-guest/h
 import {OrderModule} from 'ngx-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import {CategoryCreateComponent} from './components/admin/category/category-create/category-create.component';
-import {CategoryListComponent} from './components/admin/category/category-list/category-list.component';
-import {CategoryEditComponent} from './components/admin/category/category-edit/category-edit.component';
-import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 import {environment} from '../environments/environment';
@@ -29,9 +25,8 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {AdminComponent} from './components/admin/admin/admin.component';
-import {LeftMenuComponent} from './components/admin/left-menu/left-menu.component';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
+import {AdminModule} from './components/admin/admin.module';
 
 const routes: Routes = [
   {
@@ -51,12 +46,12 @@ const routes: Routes = [
     AddHouseComponent,
     ListHouseOfHostComponent,
     HomeListForGuestComponent,
-    CategoryCreateComponent,
-    CategoryListComponent,
-    CategoryEditComponent,
-    CategoryDeleteComponent,
-    AdminComponent,
-    LeftMenuComponent,
+    // CategoryCreateComponent,
+    // CategoryListComponent,
+    // CategoryEditComponent,
+    // CategoryDeleteComponent,
+    // AdminComponent,
+    // LeftMenuComponent,
     EditHouseComponent,
   ],
   imports: [
@@ -75,6 +70,7 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    AdminModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

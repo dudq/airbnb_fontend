@@ -12,6 +12,7 @@ import {CategoryListComponent} from './components/admin/category/category-list/c
 import {CategoryEditComponent} from './components/admin/category/category-edit/category-edit.component';
 import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
 import {AdminComponent} from './components/admin/admin/admin.component';
+import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'add-house',
     component: AddHouseComponent
+  },
+  {
+    path: 'edit-house/:id',
+    component: EditHouseComponent
   },
   {
     path: 'host/list-house-of-host',

@@ -1,33 +1,31 @@
 import {Component, OnInit} from '@angular/core';
-import {CreateHouse} from './data-create-house/createHouse';
-import {DataCreatedHouse} from './data-create-house/dataCreatedHouse';
-import {HouseService} from '../../../service/house/house.service';
-import {TokenStorageService} from '../../../auth/token-storage.service';
+import * as firebase from 'firebase';
+import {ICategory} from '../../category/iCategory';
+import {HouseService} from '../../../../service/house/house.service';
+import {CategoryService} from '../../../../service/category-house/category.service';
+import {TokenStorageService} from '../../../../auth/token-storage.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import * as firebase from 'firebase';
-import {ICategory} from '../../admin/category/iCategory';
-import {CategoryService} from '../../../service/category-house/category.service';
 import {AngularFireDatabase} from '@angular/fire/database';
-
+import {IHouseDetail} from '../../../../interface/house/houseDetail';
 
 @Component({
-  selector: 'app-add-house',
-  templateUrl: './add-house.component.html',
-  styleUrls: ['./add-house.component.css']
+  selector: 'app-house-create',
+  templateUrl: './house-create.component.html',
+  styleUrls: ['./house-create.component.css']
 })
-export class AddHouseComponent implements OnInit {
+export class HouseCreateComponent implements OnInit {
 
-  private info: any = {};
   isSuccess = false;
+  submitted = false;
   form: any = {};
-  house: CreateHouse;
   category: ICategory;
   categoryList: ICategory[] = [];
-  submitted = false;
-  houseData: DataCreatedHouse;
+  house: IHouseDetail;
   picture: string;
   arrayPicture: string[];
+  houseForm: FormGroup;
+  private info: any = {};
 
   constructor(private houseService: HouseService,
               private categoryService: CategoryService,
@@ -38,7 +36,10 @@ export class AddHouseComponent implements OnInit {
   ) {
   }
 
-  houseForm: FormGroup;
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.houseForm.controls;
+  }
 
   ngOnInit() {
     this.getCategoryList();
@@ -64,41 +65,26 @@ export class AddHouseComponent implements OnInit {
     console.log('>>>>get user now:' + this.token.getUserId());
   }
 
-  // convenience getter for easy access to form fields
-  get f() {
-    return this.houseForm.controls;
-  }
-
-  private getCategoryList() {
-    this.categoryService.getListCategory().subscribe(result => {
-      // @ts-ignore
-      this.categoryList = result;
-    });
-  }
-
   onSubmit() {
     this.submitted = true;
-    this.houseData = this.houseForm.value;
-    this.houseData.picture = this.arrayPicture;
-    console.log(this.houseData);
+    this.house = this.houseForm.value;
+    this.house.picture = this.arrayPicture;
+    console.log(this.house);
     console.log(this.arrayPicture);
     const house = this.houseForm.value;
 
     // stop here if form is invalid
     if (this.houseForm.invalid) {
-      // return this.houseService.addHouse(this.houseData).subscribe(result => {
-      //   this.isSuccess = false;
-      //   // this.router.navigate(['/home/house-list-for-guest']);
-      // });
+      return this.houseService.addHouse(this.house).subscribe(result => {
+        this.isSuccess = false;
+      });
     } else {
       this.houseService.addHouse(house).subscribe(result => {
         this.isSuccess = true;
+        alert('SUCCESS!!!');
       });
     }
-
-    alert('SUCCESS!! :-)');
   }
-
 
   uploadFile(event) {
 
@@ -123,13 +109,18 @@ export class AddHouseComponent implements OnInit {
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            // if (this.arrayPicture[i] != null) {
-            // }
             this.arrayPicture[i - 1] = downloadURL;
             console.log(this.arrayPicture);
           });
         });
       i++;
     }
+  }
+
+  private getCategoryList() {
+    this.categoryService.getListCategory().subscribe(result => {
+      // @ts-ignore
+      this.categoryList = result;
+    });
   }
 }
