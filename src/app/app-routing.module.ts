@@ -1,9 +1,9 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {HomeComponent} from './components/home/home.component';
+import {HomeComponent} from './components/public/home/home.component';
 import {RegisterComponent} from './components/user/register-user/register.component';
 import {RegisterHostComponent} from './components/host/register-host/register-host.component';
-import {LoginComponent} from './components/login/login.component';
+import {LoginComponent} from './components/public/login/login.component';
 import {AddHouseComponent} from './components/host/add-house/add-house.component';
 import {ListHouseOfHostComponent} from './components/host/list-house-of-host/list-house-of-host.component';
 import {HomeListForGuestComponent} from './components/user/home-list-for-guest/home-list-for-guest.component';
@@ -13,8 +13,8 @@ import {CategoryEditComponent} from './components/admin/category/category-edit/c
 import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
 import {AdminComponent} from './components/admin/admin/admin.component';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
-import {AboutComponent} from './components/about/about.component';
-import {ContactComponent} from './components/contact/contact.component';
+import {AboutComponent} from './components/public/about/about.component';
+import {ContactComponent} from './components/public/contact/contact.component';
 
 const routes: Routes = [
   {
