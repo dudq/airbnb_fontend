@@ -7,6 +7,12 @@
 
 }
 
+#center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3%;
+}
 .content {
   width: 95%;
   height: auto;
@@ -39,9 +45,9 @@
 }
 
 #carouselExampleCaptions {
-  margin-top: 2%;
-  width: 87%;
-  margin-left: 5%;
+  margin-top: 0%;
+  width: 100%;
+  margin-left: 3%;
 }
 
 .content-middle {
