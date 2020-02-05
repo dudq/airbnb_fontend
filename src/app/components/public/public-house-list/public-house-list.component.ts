@@ -10,6 +10,8 @@ import {HouseService} from '../../../service/house/house.service';
 export class PublicHouseListComponent implements OnInit {
   houseList: IHouseDetail[];
   content: string;
+  page = 1;
+  pageTotal: number;
 
   constructor(private houseService: HouseService) {
   }
@@ -18,9 +20,25 @@ export class PublicHouseListComponent implements OnInit {
     this.getHouseList();
   }
 
+  changePage(page) {
+    switch (page) {
+      case 'previous':
+        if (this.page > 1) {
+          this.page = this.page - 1;
+        }
+        break;
+      case 'next':
+        if (this.page < this.pageTotal) {
+          this.page = this.page + 1;
+        }
+        break;
+    }
+  }
+
   private getHouseList() {
     this.houseService.getHouseList().subscribe(result => {
       this.houseList = result;
+      this.pageTotal = Math.ceil(+this.houseList.length / 4);
       console.log('>>>>>houseList of host ' + JSON.stringify(this.houseList));
     }, err =>
       (this.content = this.content = JSON.parse(err.error).message));
