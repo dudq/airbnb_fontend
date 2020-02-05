@@ -1,66 +1,145 @@
-<div class="container col-md-12 col-sm-12">
-  <div class="row">
-    <nav class="navbar navbar-light bg-light col-md-12 col-sm-12" id="navbar-example2">
-      <div>
-        <img alt=""
-             height="60"
-             routerLink="/home"
-             src="../assets/images/Airbnb.png">
-      </div>
-      <div class="col-md-6">
-        <input aria-label="Search" class="form-control" placeholder="&#61442;  Search" type="text">
-      </div>
-      <!--  <a style="font-weight: bold" class="navbar-brand" routerLink="/home">AirBnb</a>-->
-      <ul class="nav nav-pills">
+<!--<div class="container col-md-12 col-sm-12">-->
+<!--  <div class="row">-->
+<!--    <nav class="navbar navbar-light bg-light col-md-12 col-sm-12" id="navbar-example2">-->
+<!--      <div>-->
+<!--        <img alt=""-->
+<!--             height="60"-->
+<!--             routerLink="/home"-->
+<!--             src="../assets/images/Airbnb.png">-->
+<!--      </div>-->
+<!--      <div class="col-md-6">-->
+<!--        <input aria-label="Search" class="form-control" placeholder="&#61442;  Search" type="text">-->
+<!--      </div>-->
+<!--      &lt;!&ndash;  <a style="font-weight: bold" class="navbar-brand" routerLink="/home">AirBnb</a>&ndash;&gt;-->
+<!--      <ul class="nav nav-pills">-->
 
-        <li *ngIf="authority === 'user'" class="nav-item">
-          <label class="nav-link" routerLink="/home/category-list">Category House</label>
-        </li>
-        <li *ngIf="authority === 'user'" class="nav-item">
-          <label class="nav-link" routerLink="/user/home-list-for-guest">View List House</label>
-        </li>
-        <li *ngIf="authority === 'user'" class="nav-item">
-          <label class="nav-link" routerLink="/booking">Booking</label>
-        </li>
-        <li *ngIf="authority === 'user'" class="nav-item">
-          <label class="nav-link" routerLink="/user/list-order-of-user">List Order</label>
-        </li>
-        <li *ngIf="authority === 'user'" class="nav-item">
-          <label class="nav-link" routerLink="/register-host">Home Stay</label>
-        </li>
-        <li *ngIf="authority === 'user'" class="nav-item">
-          <label class="nav-link" routerLink="/register-host">Resort</label>
-        </li>
-        <li *ngIf="authority === 'user'" class="nav-item">
-          <label (click)="logout()" class="nav-link">Logout</label>
-        </li>
+<!--        <li *ngIf="authority === 'user'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/home/category-list">Category House</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'user'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/user/home-list-for-guest">View List House</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'user'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/booking">Booking</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'user'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/user/list-order-of-user">List Order</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'user'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/register-host">Home Stay</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'user'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/register-host">Resort</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'user'" class="nav-item">-->
+<!--          <label (click)="logout()" class="nav-link">Logout</label>-->
+<!--        </li>-->
 
-        <li *ngIf="authority === 'host'" class="nav-item">
-          <label class="nav-link" routerLink="/category-list">Category House</label>
+<!--        <li *ngIf="authority === 'host'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/category-list">Category House</label>-->
+<!--        </li>-->
+
+<!--        &lt;!&ndash;        <li *ngIf="authority === 'host'" class="nav-item">&ndash;&gt;-->
+<!--        &lt;!&ndash;          <label class="nav-link">Manage House</label>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </li>&ndash;&gt;-->
+
+<!--        <li *ngIf="!authority" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/register-host">Register for Host</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'host'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/add-house">Add House</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="!authority" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/register">Register for User</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'host'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/host/list-house-of-host">List house</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'host'" class="nav-item">-->
+<!--          <label class="nav-link" routerLink="/register">Messages</label>-->
+<!--        </li>-->
+<!--        <li *ngIf="authority === 'host'" class="nav-item">-->
+<!--          <label (click)="logout()" class="nav-link">Logout</label>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <button *ngIf="authority ==='user'" aria-expanded="false" aria-haspopup="true"-->
+<!--                  class="btn btn-primary dropdown-toggle"-->
+<!--                  data-toggle="dropdown" role="button">User {{info.username}}</button>-->
+<!--          <button *ngIf="authority === 'host'" aria-expanded="false" aria-haspopup="true"-->
+<!--                  class="btn btn-primary dropdown-toggle"-->
+<!--                  data-toggle="dropdown" role="button">Host {{info.username}}</button>-->
+<!--          <button *ngIf="!authority" aria-expanded="false" aria-haspopup="true"-->
+<!--                  class="btn btn-primary dropdown-toggle"-->
+<!--                  data-toggle="dropdown" role="button">Account-->
+<!--          </button>-->
+<!--          <div class="dropdown-menu" id="dropdownMenu">-->
+<!--            <a *ngIf="!authority" class="dropdown-item" routerLink="/login">Login</a>-->
+<!--            <a *ngIf="!authority" class="dropdown-item" routerLink="/information">Profile Account</a>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="container-fluid">
+  <nav class="navbar navbar-expand navbar-light bg-info col-md-12 col-sm-12">
+    <a class="navbar-brand text-light">
+      <img alt=""
+           height="60"
+           routerLink="/home"
+           src="../assets/images/Airbnb.png">
+    </a>
+    <button aria-controls="demo-navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#demo-navbar" data-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="demo-navbar">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="authority==='user'" class="nav-item">
+          <a class="nav-link text-light" routerLink="/home/category-list">List Category House <span
+            class="sr-only">(current)</span></a>
         </li>
-
-        <!--        <li *ngIf="authority === 'host'" class="nav-item">-->
-        <!--          <label class="nav-link">Manage House</label>-->
-        <!--        </li>-->
-
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Home</a>
+        </li>
         <li *ngIf="!authority" class="nav-item">
-          <label class="nav-link" routerLink="/register-host">Register for Host</label>
-        </li>
-        <li *ngIf="authority === 'host'" class="nav-item">
-          <label class="nav-link" routerLink="/add-house">Add House</label>
+          <a class="nav-link text-light" routerLink="/about">About Us</a>
         </li>
         <li *ngIf="!authority" class="nav-item">
-          <label class="nav-link" routerLink="/register">Register for User</label>
+          <a class="nav-link text-light" routerLink="/contact">Contact</a>
         </li>
-        <li *ngIf="authority === 'host'" class="nav-item">
-          <label class="nav-link" routerLink="/host/list-house-of-host">List house</label>
+        <li *ngIf="authority==='user'" class="nav-item">
+          <a class="nav-link text-light" routerLink="/user/home-list-for-guest">List House</a>
         </li>
-        <li *ngIf="authority === 'host'" class="nav-item">
-          <label class="nav-link" routerLink="/register">Messages</label>
+        <li *ngIf="authority==='host'" class="nav-item">
+          <a class="nav-link text-light" routerLink="/home/category-list">List Category House <span
+            class="sr-only">(current)</span></a>
         </li>
-        <li *ngIf="authority === 'host'" class="nav-item">
-          <label (click)="logout()" class="nav-link">Logout</label>
+        <li *ngIf="authority==='host'" class="nav-item">
+          <a class="nav-link text-light" routerLink="/user/home-list-for-guest">List House</a>
         </li>
+        <li *ngIf="authority==='host'" class="nav-item">
+          <a class="nav-link text-light" routerLink="/user/list-order-of-user">List Order House</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle text-light"
+             *ngIf="authority" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+            House
+          </a>
+          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <a *ngIf="authority==='host'" class="dropdown-item" routerLink="/add-house">Add House</a>
+            <a *ngIf="authority==='user'" class="dropdown-item" routerLink="/booking">Booking Room</a>
+            <a *ngIf="authority==='user'" class="dropdown-item" routerLink="/user/list-order-of-user">List your
+              booked</a>
+          </div>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <a *ngIf="!authority" class="nav-link text-light" routerLink="/register-host">Register for Host</a>
+        <a *ngIf="!authority" class="nav-link text-light" routerLink="/register">Register for User</a>
         <li class="nav-item dropdown">
           <button *ngIf="authority ==='user'" aria-expanded="false" aria-haspopup="true"
                   class="btn btn-primary dropdown-toggle"
@@ -69,17 +148,24 @@
                   class="btn btn-primary dropdown-toggle"
                   data-toggle="dropdown" role="button">Host {{info.username}}</button>
           <button *ngIf="!authority" aria-expanded="false" aria-haspopup="true"
-                  class="btn btn-primary dropdown-toggle"
+                  class="btn btn-light dropdown-toggle"
                   data-toggle="dropdown" role="button">Account
           </button>
-          <div class="dropdown-menu" id="dropdownMenu">
+          <!--          <a  aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle btn-light"-->
+          <!--             data-toggle="dropdown" href="#" id="navDropdown" role="button">-->
+          <!--            Account-->
+          <!--          </a>-->
+          <div aria-labelledby="navDropdown" class="dropdown-menu">
             <a *ngIf="!authority" class="dropdown-item" routerLink="/login">Login</a>
-            <a *ngIf="!authority" class="dropdown-item" routerLink="/information">Profile Account</a>
+            <a *ngIf="authority==='user'" class="dropdown-item" routerLink="/information">Profile Account</a>
+            <a *ngIf="authority==='host'" class="dropdown-item" routerLink="/information">Profile Account</a>
+            <a (click)="logout()" *ngIf="authority==='host'" class="dropdown-item">Logout</a>
+            <a (click)="logout()" *ngIf="authority==='user'" class="dropdown-item">Logout</a>
           </div>
         </li>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </div>
 
 <router-outlet></router-outlet>

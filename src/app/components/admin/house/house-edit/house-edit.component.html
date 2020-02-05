@@ -1,0 +1,120 @@
+<div class="container">
+  <div *ngIf="isSuccess" class="alert alert-success" role="alert">
+    Edit house successfully!
+  </div>
+  <fieldset>
+    <legend>Edit house</legend>
+    <form (ngSubmit)="onSubmit()" [formGroup]="houseForm">
+
+      <div class="form-group">
+        <label>House Name</label>
+        <input [ngClass]="{ 'is-invalid': submitted && houseForm.get('houseName').invalid }"
+               class="form-control"
+               formControlName="houseName"
+               type="text">
+        <div *ngIf="submitted && houseForm.get('houseName').invalid" class="invalid-feedback">
+          <div *ngIf="f.houseName.errors.required">House's name not empty</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          Category
+        </label>
+        <select
+          class="form-control"
+          id="category"
+          name="category">
+          <option *ngFor="let item of categoryList" value="{{item.id}}">
+            {{item.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Picture: </label>
+        <input (change)="uploadFile($event)" accept=".png, .jpg" class="form-control"
+               multiple placeholder="picture"
+               required type="file">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="picture" class="image-preview">
+          <div *ngFor="let preview of picture" class="float-left">
+            <img [src]="preview.url" height="100"/>&nbsp;
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="form-group" style="clear: left">
+        <label>Address: </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+               class="form-control"
+               formControlName="address"
+               type="text"/>
+        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+          <div *ngIf="f.address.errors.required">Address is not empty</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Bedroom Number: </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.bedroomNumber.errors }"
+               class="form-control"
+               formControlName="bedroomNumber"
+               min="0"
+               type="number"/>
+        <div *ngIf="submitted && f.bedroomNumber.errors" class="invalid-feedback">
+          <div *ngIf="f.bedroomNumber.errors.required">Bedroom Number is not empty</div>
+          <div *ngIf="f.bedroomNumber.errors.min">Bedroom Number must greater than 0</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Bathroom Number: </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+               class="form-control"
+               formControlName="bathroomNumber"
+               min="0"
+               type="number">
+        <div *ngIf="submitted && f.bathroomNumber.errors" class="invalid-feedback">
+          <div *ngIf="f.bathroomNumber.errors.required">Bathroom Number is not empty</div>
+          <div *ngIf="f.bathroomNumber.errors.min">Bathroom Number must greater than 0</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Description: </label>
+        <input class="form-control"
+               formControlName="description"
+               type="text">
+      </div>
+      <div class="form-group">
+        <label>Area Of Room (m2): </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.area.errors}"
+               class="form-control"
+               formControlName="area"
+               min="0"
+               type="number">
+        <div *ngIf="submitted && f.area.errors" class="invalid-feedback">
+          <div *ngIf="f.area.errors.required">Area is not empty</div>
+          <div *ngIf="f.area.errors.min">Area must greater than 0</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Price (USD/day): </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+               class="form-control"
+               formControlName="price"
+               min="0"
+               type="number">
+        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required">Price is not empty</div>
+          <div *ngIf="f.price.errors.min">Price must greater than 0</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-primary" routerLink="/home">Back Home</button>
+      </div>
+    </form>
+  </fieldset>
+</div>
