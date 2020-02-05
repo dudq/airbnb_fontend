@@ -3,15 +3,15 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
-import {FooterComponent} from './components/footer/footer.component';
-import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/public/footer/footer.component';
+import {HeaderComponent} from './components/public/header/header.component';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import {AppRoutingModule} from './app-routing.module';
-import {HomeComponent} from './components/home/home.component';
+import {HomeComponent} from './components/public/home/home.component';
 import {RegisterComponent} from './components/user/register-user/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RegisterHostComponent} from './components/host/register-host/register-host.component';
-import {LoginComponent} from './components/login/login.component';
+import {LoginComponent} from './components/public/login/login.component';
 import {AddHouseComponent} from './components/host/add-house/add-house.component';
 import {ListHouseOfHostComponent} from './components/host/list-house-of-host/list-house-of-host.component';
 import {HomeListForGuestComponent} from './components/user/home-list-for-guest/home-list-for-guest.component';
@@ -27,8 +27,10 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 import {AdminModule} from './components/admin/admin.module';
-import {AboutComponent} from './about/about.component';
-import {ContactComponent} from './contact/contact.component';
+import {AboutComponent} from './components/public/about/about.component';
+import {ContactComponent} from './components/public/contact/contact.component';
+import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
+import {PublicHouseItemComponent} from './components/public/public-house-item/public-house-item.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,8 @@ const routes: Routes = [
     EditHouseComponent,
     AboutComponent,
     ContactComponent,
+    PublicHouseListComponent,
+    PublicHouseItemComponent,
   ],
   imports: [
     BrowserModule,
