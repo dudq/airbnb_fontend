@@ -30,6 +30,7 @@ import {AdminModule} from './components/admin/admin.module';
 import {AboutComponent} from './components/public/about/about.component';
 import {ContactComponent} from './components/public/contact/contact.component';
 import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
+import {PublicHouseItemComponent} from './components/public/public-house-item/public-house-item.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,7 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     PublicHouseListComponent,
+    PublicHouseItemComponent,
   ],
   imports: [
     BrowserModule,

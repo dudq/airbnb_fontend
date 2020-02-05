@@ -1,44 +1,63 @@
-<div class="container">
-  <h2>House List</h2>
-  <table *ngIf="houseList" class="table table-striped table-bordered col-10">
-    <thead>
-    <tr class="text-light" style="text-align: center;   background-color: deepskyblue;">
-      <th scope="col">#ID</th>
-      <th scope="col">House Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Category</th>
-      <th scope="col">Price</th>
-      <th scope="col">Area</th>
-      <th scope="col">Host</th>
-      <th scope="col">Status</th>
-      <th colspan="2">
-        <a [routerLink]="['/admin/house-create']" class="btn btn-success text-light">Add House</a>
-      </th>
-    </tr>
-    </thead>
-    <tr *ngFor="let house of houseList "
-        style="text-align: center">
-      <!--|    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">-->
-      <th scope="row">{{house.id}}</th>
-      <th><a routerLink="/admin/house-detail/{{house.id}}">{{house.houseName}}</a></th>
-      <th>{{house.address}}</th>
-      <th>{{house.category.name}}</th>
-      <th>{{house.price}}</th>
-      <th>{{house.area}}</th>
-      <th>{{house.user.name}}</th>
-      <th>
-        <!--      {{house.status}}-->
-      </th>
-      <td>
-        <div>
-          <a [routerLink]="['/admin/house-edit',house.id]"
-             class="btn btn-danger text-light">Edit</a>
-          <a [routerLink]="['/admin/house-delete',house.id]"
-             class="btn btn-primary text-light ml-4">Delete</a>
+<div class="container welcome text-center">
+  <div class="col-12">
+    <h3 class="display-5">All House</h3>
+  </div>
+  <hr style="margin-right: 5px">
+  <hr style="margin-left: 5px">
+  <div class="row">
+    <div *ngFor="let house of houseList, index as i" class="col-md-3"
+         style="padding: 10px 10px 10px 10px">
+      <div class="card">
+        <a [routerLink]="['/book-detail-public', house.id]"><img [src]="house.picture[0].url" class="card-img-top"
+                                                                 height="200px"></a>
+        <div class="card-body">
+          <h5 [routerLink]="['/book-detail-public', house.id]" class="card-title">{{house.houseName}}</h5>
+          <p class="card-text">Area: <a [routerLink]="['/book-author']">{{house.area}} m2</a></p>
+          <h6 class="card-text">{{house.price | currency: "USD" : "$ "}}</h6>
+          <a>Book now</a>
         </div>
-      </td>
-    </tr>
-  </table>
+      </div>
+    </div>
+  </div>
+  <!--  <table *ngIf="houseList" class="table table-striped table-bordered col-10">-->
+  <!--    <thead>-->
+  <!--    <tr class="text-light" style="text-align: center;   background-color: deepskyblue;">-->
+  <!--      <th scope="col">#ID</th>-->
+  <!--      <th scope="col">House Name</th>-->
+  <!--      <th scope="col">Address</th>-->
+  <!--      <th scope="col">Category</th>-->
+  <!--      <th scope="col">Price</th>-->
+  <!--      <th scope="col">Area</th>-->
+  <!--      <th scope="col">Host</th>-->
+  <!--      <th scope="col">Status</th>-->
+  <!--      <th colspan="2">-->
+  <!--        <a [routerLink]="['/admin/house-create']" class="btn btn-success text-light">Add House</a>-->
+  <!--      </th>-->
+  <!--    </tr>-->
+  <!--    </thead>-->
+  <!--    <tr *ngFor="let house of houseList "-->
+  <!--        style="text-align: center">-->
+  <!--      &lt;!&ndash;|    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">&ndash;&gt;-->
+  <!--      <th scope="row">{{house.id}}</th>-->
+  <!--      <th><a routerLink="/admin/house-detail/{{house.id}}">{{house.houseName}}</a></th>-->
+  <!--      <th>{{house.address}}</th>-->
+  <!--      <th>{{house.category.name}}</th>-->
+  <!--      <th>{{house.price}}</th>-->
+  <!--      <th>{{house.area}}</th>-->
+  <!--      <th>{{house.user.name}}</th>-->
+  <!--      <th>-->
+  <!--        &lt;!&ndash;      {{house.status}}&ndash;&gt;-->
+  <!--      </th>-->
+  <!--      <td>-->
+  <!--        <div>-->
+  <!--          <a [routerLink]="['/admin/house-edit',house.id]"-->
+  <!--             class="btn btn-danger text-light">Edit</a>-->
+  <!--          <a [routerLink]="['/admin/house-delete',house.id]"-->
+  <!--             class="btn btn-primary text-light ml-4">Delete</a>-->
+  <!--        </div>-->
+  <!--      </td>-->
+  <!--    </tr>-->
+  <!--  </table>-->
   <!--<div id="pagination">-->
   <!--  <pagination-controls (pageChange)="pageActual = $event"-->
   <!--  ></pagination-controls>-->
