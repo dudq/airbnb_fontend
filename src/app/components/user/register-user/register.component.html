@@ -10,9 +10,9 @@
       <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()"
             class="register-form" name="form" novalidate>
         <label class="btn btn-light  ">
-          <h2 style="text-align: center;">Register User</h2>
+          <h2 style="text-align: center; color: green">Register User</h2>
           <div class="form-group ">
-            <label>Name</label>
+            <!--            <label>Name</label>-->
             <input #name="ngModel" [(ngModel)]="form.name" aria-describedby="Name" class="form-control"
                    minlength="6"
                    id="exampleInputName" name="name" placeholder="Name" required
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Email</label>
+            <!--            <label>Email</label>-->
             <input #email="ngModel" [(ngModel)]="form.email" class="form-control" email name="email"
                    placeholder="Email" required type="text"/>
             <div *ngIf="f.submitted && email.invalid">
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Username</label>
+            <!--            <label>Username</label>-->
             <input #username="ngModel" [(ngModel)]="form.username" class="form-control" name="username"
                    maxlength="16"
                    minlength="6"
@@ -49,7 +49,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Password</label>
+            <!--            <label>Password</label>-->
             <input #password="ngModel" [(ngModel)]="form.password" class="form-control" id="exampleInputPassword1"
                    minlength="6"
                    name="password" placeholder="Password"
@@ -62,10 +62,12 @@
             </div>
           </div>
           <div id="btnRegister">
-            <button class="btn btn-primary" type="submit"><i class="fas fa-sign-in-alt"></i> Register</button>
+            <input class="form-submit" id="submit" name="submit" type="submit" value="Register">
+            <!--            <button class="btn btn-primary" type="submit"><i class="fas fa-sign-in-alt"></i> Register</button>-->
           </div>
           <!--        <button class="btn btn-success btn-siginin-signup" type="submit"><i class="fas fa-sign-in-alt"></i> Sign up-->
           <!--        </button>-->
+          <p class="loginhere">Have already an account? <a class="loginhere-link" href="#">Login here</a></p>
         </label>
       </form>
     </ng-template>
