@@ -7,7 +7,8 @@
       <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning" style="text-align: center">
         Đăng ký thành công <br/>
       </div>
-           <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="register-form" name="form" novalidate>
+           <form #f="ngForm" (ngSubmit)="f.form.valid && ch.value==password.value && onSubmit()" class="register-form"
+                 name="form" novalidate>
              <label class="btn btn-white ">
                <h2 style="text-align: center; color: green">Register Host</h2>
                <div class="form-group">
@@ -60,6 +61,18 @@
               </div>
             </div>
           </div>
+               <div class="form-group">
+                 <input
+                   #ch
+                   class="form-control"
+                   placeholder="Confirm Password"
+                   required
+                   type="password"
+                 />
+                 <div *ngIf="ch.value !='' && ch.value!= password.value" class="alert-danger">
+                   The password is not the same
+                 </div>
+               </div>
                <div id="btnRegister">
                  <input class="form-submit" id="submit" name="submit" type="submit" value="Register">
                  <!--            <button class="btn btn-primary " type="submit" ><i class="fas fa-sign-in-alt"></i> Register</button>-->
