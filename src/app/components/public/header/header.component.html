@@ -104,12 +104,60 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="#">Home</a>
         </li>
+        <!--tao khoang cach giua cac chu tren giao dien-->
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+        <!-- cac lenh nhu trong khung chu nay chi de tao khoang cach giua cac chu -->
         <li *ngIf="!authority" class="nav-item">
           <a class="nav-link text-light" routerLink="/about">About Us</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+
         <li *ngIf="!authority" class="nav-item">
           <a class="nav-link text-light" routerLink="/contact">Contact</a>
         </li>
+        <!--space-->
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+        <!--space-->
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="form-inline mr-auto">
+            <input aria-label="Search" class="form-control" placeholder="Search" type="text">
+            <button class="btn btn-secondary btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+          </form>
+        </div>
+
+        <!--space-->
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light"></a>
+        </li>
+        <!--space-->
+
+        <a class="navbar-brand text-light">
+          <img alt=""
+               height="60"
+               routerLink="/home"
+               src="../assets/images/logo.png">
+        </a>
+
         <li *ngIf="authority==='user'" class="nav-item">
           <a class="nav-link text-light" routerLink="/user/home-list-for-guest">List House</a>
         </li>

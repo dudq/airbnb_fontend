@@ -3,6 +3,28 @@
   padding-left: 1%;
 }
 
+#center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2%;
+}
+
+#center1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6%;
+}
+
+.airbnb-plus {
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.airbnb-plus p {
+  margin-bottom: 2%;
+}
 .footer {
   width: 100%;
   height: auto;
