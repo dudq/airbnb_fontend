@@ -8,7 +8,7 @@
         Đăng ký thành công <br/>
       </div>
            <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="register-form" name="form" novalidate>
-             <label class="btn btn-light  ">
+             <label class="btn btn-white ">
                <h2 style="text-align: center; color: green">Register Host</h2>
                <div class="form-group">
                  <!--            <label>Name</label>-->
@@ -18,7 +18,7 @@
                         required type="text">
                  <div *ngIf="f.submitted && name.invalid">
                    <div *ngIf="name.errors.required" class="displayErrorMessage">Name is required</div>
-              <div *ngIf="name.errors.minlength" class="displayErrorMessage">Name must be at least 6
+                   <div *ngIf="name.errors.minlength" class="displayErrorMessage">Name must be at least 6
                 characters
               </div>
             </div>
