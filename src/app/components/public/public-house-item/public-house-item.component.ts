@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {IHouseDetail} from '../../../interface/house/houseDetail';
 
 @Component({
   selector: 'app-public-house-item',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./public-house-item.component.css']
 })
 export class PublicHouseItemComponent implements OnInit {
-  @Input() house;
+  @Input() house: IHouseDetail;
 
   constructor() {
   }

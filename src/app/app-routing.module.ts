@@ -17,6 +17,7 @@ import {AboutComponent} from './components/public/about/about.component';
 import {ContactComponent} from './components/public/contact/contact.component';
 import {AdminGuardService} from './auth/guard/AdminGuardService';
 import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
+import {HouseDetailComponent} from './components/admin/house/house-detail/house-detail.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'houses',
     component: PublicHouseListComponent
+  },
+  {
+    path: 'houses-detail/:id',
+    component: HouseDetailComponent
   },
   {
     path: 'add-house',

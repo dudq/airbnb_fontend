@@ -1,10 +1,10 @@
 <div class="card">
-  <a [routerLink]="['/public-house-detail', house.id]"><img [src]="house.picture[0].url" class="card-img-top"
-                                                            height="200px"></a>
+  <a [routerLink]="['/houses-detail', house.id]"><img [src]="house.picture[0].url" class="card-img-top"
+                                                      height="200px"></a>
   <div class="card-body">
-    <h5 [routerLink]="['/public-book-detail', house.id]" class="card-title">{{house.houseName}}</h5>
+    <h5 [routerLink]="['/houses-detail', house.id]" class="card-title">{{house.houseName}}</h5>
     <p class="card-text">Area: {{house.area}} m2</p>
     <h6 class="card-text">{{house.price | currency: "USD" : "$ "}}</h6>
-    <a [routerLink]="['/public-book-detail', house.id]">Book now</a>
+    <a [routerLink]="['/houses-detail', house.id]">Book now</a>
   </div>
 </div>

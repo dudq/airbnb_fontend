@@ -37,6 +37,9 @@ import {HouseBookingItemComponent} from './house-booking/house-booking-item/hous
     HouseBookingCreateComponent,
     HouseBookingListComponent,
     HouseBookingItemComponent,
+  ],
+  exports: [
+    HouseDetailComponent
   ]
 })
 export class AdminModule {
