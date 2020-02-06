@@ -18,6 +18,7 @@ import {ContactComponent} from './components/public/contact/contact.component';
 import {AdminGuardService} from './auth/guard/AdminGuardService';
 import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
 import {HouseDetailComponent} from './components/admin/house/house-detail/house-detail.component';
+import {LoginGuardService} from './auth/guard/LoginGuardService';
 
 const routes: Routes = [
   {
@@ -48,7 +49,8 @@ const routes: Routes = [
   },
   {
     path: 'houses',
-    component: PublicHouseListComponent
+    component: PublicHouseListComponent,
+    canActivate: [LoginGuardService]
   },
   {
     path: 'houses-detail/:id',
