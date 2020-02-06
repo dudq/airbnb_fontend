@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TokenStorageService} from '../../../auth/token-storage.service';
 import {AuthService} from '../../../auth/auth.service';
 import {Router} from '@angular/router';
-import {HeaderComponent} from '../../header/header.component';
+import {HeaderComponent} from '../../public/header/header.component';
 
 @Component({
   selector: 'app-register-host',

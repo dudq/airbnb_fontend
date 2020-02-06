@@ -1,9 +1,9 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {HomeComponent} from './components/home/home.component';
+import {HomeComponent} from './components/public/home/home.component';
 import {RegisterComponent} from './components/user/register-user/register.component';
 import {RegisterHostComponent} from './components/host/register-host/register-host.component';
-import {LoginComponent} from './components/login/login.component';
+import {LoginComponent} from './components/public/login/login.component';
 import {AddHouseComponent} from './components/host/add-house/add-house.component';
 import {ListHouseOfHostComponent} from './components/host/list-house-of-host/list-house-of-host.component';
 import {HomeListForGuestComponent} from './components/user/home-list-for-guest/home-list-for-guest.component';
@@ -13,20 +13,26 @@ import {CategoryEditComponent} from './components/admin/category/category-edit/c
 import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
 import {AdminComponent} from './components/admin/admin/admin.component';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
-import {AboutComponent} from './about/about.component';
-import {ContactComponent} from './contact/contact.component';
-import {Page404Component} from './page404/page404.component';
-import {PathResolveService} from './path-resolve.service';
-import {paths} from './app-paths';
+import {AboutComponent} from './components/public/about/about.component';
+import {ContactComponent} from './components/public/contact/contact.component';
+import {AdminGuardService} from './auth/guard/AdminGuardService';
+import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
+import {HouseDetailComponent} from './components/admin/house/house-detail/house-detail.component';
 
 const routes: Routes = [
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [AdminGuardService]
   },
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   },
   {
     path: 'login',
@@ -39,6 +45,14 @@ const routes: Routes = [
   {
     path: 'register-host',
     component: RegisterHostComponent
+  },
+  {
+    path: 'houses',
+    component: PublicHouseListComponent
+  },
+  {
+    path: 'houses-detail/:id',
+    component: HouseDetailComponent
   },
   {
     path: 'add-house',
@@ -79,23 +93,6 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
-  },
-  // page404
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: paths.home
-  },
-  {
-    path: paths.home,
-    component: HomeComponent
-  },
-  {
-    path: '**',
-    resolve: {
-      path: PathResolveService
-    },
-    component: Page404Component
   }
 ];
 

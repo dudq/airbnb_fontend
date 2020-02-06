@@ -2,18 +2,18 @@
   <div class="card">
     <div *ngIf="house" class="container-fluid">
       <div class="wrapper row">
-        <div class="preview container col-md-6">
+        <div class="preview container col-md-4">
           <div class="carousel slide" data-ride="carousel" id="myCarousel">
             <ol class="carousel-indicators">
               <li *ngFor="let picture of house.picture; let i = index"
                   [attr.data-slide-to]="i"
                   [ngClass]="i == 0 ? 'active' : ''" data-target="#myCarousel"></li>
             </ol>
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner d-flex align-items-center" role="listbox">
               <div *ngFor="let picture of house.picture; let i = index"
                    [ngClass]="i == 0 ? 'active' : ''"
                    class="carousel-item col-md-3">
-                <img src="{{picture.url}}">
+                <img height="400px" src="{{picture.url}}" width="350">
               </div>
             </div>
             <a class="carousel-control-prev" data-slide="prev" href="#myCarousel" role="button">

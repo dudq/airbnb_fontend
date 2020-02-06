@@ -34,6 +34,7 @@
 
 .register-form label {
   padding: 5px;
+
 }
 
 .form-group {
@@ -45,4 +46,38 @@
   font-weight: 100;
   font-family: Dialog;
   padding-top: 2%;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 17px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  background-image: linear-gradient(to left, #74ebd5, #9face6);
+}
+
+.register-content {
+  background: #34ce57;
+  padding: 50px 85px;
+}
+
+.loginhere {
+  color: #555;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 91px;
+  margin-bottom: 5px;
+}
+
+.loginhere-link {
+  font-weight: 500;
+  color: #222;
+}
+
+p {
+  font-size: 15px;
 }
