@@ -10,4 +10,5 @@ export interface IHouseDetail {
   price: number;
   area: number;
   user: any;
+  status: string;
 }

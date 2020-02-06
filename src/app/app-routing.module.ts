@@ -19,6 +19,8 @@ import {AdminGuardService} from './auth/guard/AdminGuardService';
 import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
 import {HouseDetailComponent} from './components/admin/house/house-detail/house-detail.component';
 import {LoginGuardService} from './auth/guard/LoginGuardService';
+import {HouseCreateComponent} from './components/admin/house/house-create/house-create.component';
+import {HostGuardService} from './auth/guard/HostGuardService';
 
 const routes: Routes = [
   {
@@ -66,7 +68,13 @@ const routes: Routes = [
   },
   {
     path: 'host/list-house-of-host',
-    component: ListHouseOfHostComponent
+    component: ListHouseOfHostComponent,
+    canActivate: [HostGuardService]
+  },
+  {
+    path: 'host/house-create',
+    component: HouseCreateComponent,
+    canActivate: [HostGuardService]
   },
   {
     path: 'user/home-list-for-guest',
