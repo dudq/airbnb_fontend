@@ -31,6 +31,7 @@ import {AboutComponent} from './components/public/about/about.component';
 import {ContactComponent} from './components/public/contact/contact.component';
 import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
 import {PublicHouseItemComponent} from './components/public/public-house-item/public-house-item.component';
+import {Page404Component} from './page404/page404.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,8 @@ const routes: Routes = [
     ContactComponent,
     PublicHouseListComponent,
     PublicHouseItemComponent,
+    Page404Component
+
   ],
   imports: [
     BrowserModule,
