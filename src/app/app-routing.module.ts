@@ -18,8 +18,6 @@ import {ContactComponent} from './components/public/contact/contact.component';
 import {AdminGuardService} from './auth/guard/AdminGuardService';
 import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
 import {HouseDetailComponent} from './components/admin/house/house-detail/house-detail.component';
-import {paths} from './page404/app-paths';
-import {PathResolveService} from './service/page404/path-resolve.service';
 import {Page404Component} from './page404/page404.component';
 import {LoginGuardService} from './auth/guard/LoginGuardService';
 
@@ -100,20 +98,20 @@ const routes: Routes = [
     component: ContactComponent
   },
   // page404
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: paths.home
-  },
-  {
-    path: paths.home,
-    component: HomeComponent
-  },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: paths.home
+  // },
+  // {
+  //   path: paths.home,
+  //   component: HomeComponent
+  // },
   {
     path: '**',
-    resolve: {
-      path: PathResolveService
-    },
+    // resolve: {
+    //   path: PathResolveService
+    // },
     component: Page404Component
   }
 ];
