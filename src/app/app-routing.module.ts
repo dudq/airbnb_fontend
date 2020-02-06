@@ -13,8 +13,11 @@ import {CategoryEditComponent} from './components/admin/category/category-edit/c
 import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
 import {AdminComponent} from './components/admin/admin/admin.component';
 import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
-import {AboutComponent} from "./about/about.component";
-import {ContactComponent} from "./contact/contact.component";
+import {AboutComponent} from './about/about.component';
+import {ContactComponent} from './contact/contact.component';
+import {Page404Component} from './page404/page404.component';
+import {PathResolveService} from './path-resolve.service';
+import {paths} from './app-paths';
 
 const routes: Routes = [
   {
@@ -76,6 +79,23 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  // page404
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: paths.home
+  },
+  {
+    path: paths.home,
+    component: HomeComponent
+  },
+  {
+    path: '**',
+    resolve: {
+      path: PathResolveService
+    },
+    component: Page404Component
   }
 ];
 

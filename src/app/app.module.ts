@@ -29,6 +29,7 @@ import {EditHouseComponent} from './components/host/edit-house/edit-house.compon
 import {AdminModule} from './components/admin/admin.module';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
+import {Page404Component} from './page404/page404.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,7 @@ const routes: Routes = [
     EditHouseComponent,
     AboutComponent,
     ContactComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,
