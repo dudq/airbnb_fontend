@@ -12,7 +12,6 @@ import {CategoryListComponent} from './components/admin/category/category-list/c
 import {CategoryEditComponent} from './components/admin/category/category-edit/category-edit.component';
 import {CategoryDeleteComponent} from './components/admin/category/category-delete/category-delete.component';
 import {AdminComponent} from './components/admin/admin/admin.component';
-import {EditHouseComponent} from './components/host/edit-house/edit-house.component';
 import {AboutComponent} from './components/public/about/about.component';
 import {ContactComponent} from './components/public/contact/contact.component';
 import {AdminGuardService} from './auth/guard/AdminGuardService';
@@ -23,6 +22,7 @@ import {Page404Component} from './page404/page404.component';
 import {LoginGuardService} from './auth/guard/LoginGuardService';
 import {HouseCreateComponent} from './components/admin/house/house-create/house-create.component';
 import {HostGuardService} from './auth/guard/HostGuardService';
+import {HouseEditComponent} from './components/admin/house/house-edit/house-edit.component';
 
 const routes: Routes = [
   {
@@ -65,8 +65,8 @@ const routes: Routes = [
     component: AddHouseComponent
   },
   {
-    path: 'edit-house/:id',
-    component: EditHouseComponent
+    path: 'house-edit/:id',
+    component: HouseEditComponent
   },
   {
     path: 'host/list-house-of-host',
