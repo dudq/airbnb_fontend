@@ -18,6 +18,8 @@ import {ContactComponent} from './components/public/contact/contact.component';
 import {AdminGuardService} from './auth/guard/AdminGuardService';
 import {PublicHouseListComponent} from './components/public/public-house-list/public-house-list.component';
 import {HouseDetailComponent} from './components/admin/house/house-detail/house-detail.component';
+// import {PathResolveService} from './service/page404/path-resolve.service';
+import {Page404Component} from './page404/page404.component';
 import {LoginGuardService} from './auth/guard/LoginGuardService';
 import {HouseCreateComponent} from './components/admin/house/house-create/house-create.component';
 import {HostGuardService} from './auth/guard/HostGuardService';
@@ -114,13 +116,13 @@ const routes: Routes = [
   //   path: paths.home,
   //   component: HomeComponent
   // },
-  // {
-  //   path: '**',
-  // resolve: {
-  //   path: PathResolveService
-  // },
-  //   component: Page404Component
-  // }
+  {
+    path: '**',
+    // resolve: {
+    //   path: PathResolveService
+    // },
+    component: Page404Component
+  }
 ];
 
 @NgModule({

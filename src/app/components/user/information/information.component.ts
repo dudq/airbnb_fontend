@@ -3,11 +3,12 @@ import {TokenStorageService} from '../../../auth/token-storage.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-information',
+  templateUrl: './information.component.html',
+  styleUrls: ['./information.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class InformationComponent implements OnInit {
+
   private roles: string[];
   private authority: string;
 
@@ -20,6 +21,8 @@ export class HeaderComponent implements OnInit {
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
+      name: this.token.getName(),
+      email: this.token.getEmail(),
       authorities: this.token.getAuthorities(),
     };
     console.log('token from Browser:' + this.info.token);
@@ -39,11 +42,5 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  logout() {
-    this.authority = null;
-    this.token.signOut();
-    this.router.navigate(['/home']);
-    // this.ngOnInit();
-  }
 
 }
