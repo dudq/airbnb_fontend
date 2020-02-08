@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {HouseConvert} from '../../../interface/house/houseConvert';
 import {TokenStorageService} from '../../../auth/token-storage.service';
 import {HouseService} from '../../../service/house/house.service';
+import {IHouseDetail} from '../../../interface/house/houseDetail';
 
 @Component({
   selector: 'app-home-list-for-guest',
@@ -16,7 +16,7 @@ export class HomeListForGuestComponent implements OnInit {
   maxSize = 3;
   searchText;
   // house: House;
-  house: HouseConvert[] = [];
+  house: IHouseDetail[] = [];
 
   constructor(private token: TokenStorageService,
               private houseService: HouseService,
@@ -36,10 +36,10 @@ export class HomeListForGuestComponent implements OnInit {
   }
 
   private getHouseList() {
-    // this.houseService.getList().subscribe(result => {
-    //   this.house = result;
-    //   console.log('>>>>House list:' + JSON.stringify(this.house));
-    // });
+    this.houseService.getHouseList().subscribe(result => {
+      this.house = result;
+      console.log('>>>>House list:' + JSON.stringify(this.house));
+    });
     // this.house = this.houseService.convertHouseList();
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.house.length; i++) {
