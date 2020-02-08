@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../../auth/token-storage.service';
 import {HouseService} from '../../../service/house/house.service';
 import {IHouseDetail} from '../../../interface/house/houseDetail';
+import {FormControl} from '@angular/forms';
+import {CategoryService} from '../../../service/category-house/category.service';
+import {ICategory} from '../../admin/category/iCategory';
 
 @Component({
   selector: 'app-home-list-for-guest',
@@ -11,28 +14,36 @@ import {IHouseDetail} from '../../../interface/house/houseDetail';
 export class HomeListForGuestComponent implements OnInit {
 
   private info: any;
-  // pagination setting
+  categoryList: ICategory[];
   pageActual = 1;
   maxSize = 3;
-  searchText;
+  formSearch: FormControl;
+  searchName;
+  searchArea;
+  searchBedRoom;
+  searchCategory;
   // house: House;
   house: IHouseDetail[] = [];
 
   constructor(private token: TokenStorageService,
               private houseService: HouseService,
+              private categoryService: CategoryService
   ) {
   }
 
 
   ngOnInit() {
     this.getHouseList();
+    this.getCategoryList();
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
-
-    console.log('token from Browser:' + this.info.token);
+    // this.formSearch = new FormControl('');
+    // console.log('>>>' + this.searchName);
+    // console.log('>>>' + typeof this.searchCategory);
+    // console.log('token from Browser:' + this.info.token);
   }
 
   private getHouseList() {
@@ -48,4 +59,9 @@ export class HomeListForGuestComponent implements OnInit {
     console.log(this.house);
   }
 
+  private getCategoryList() {
+    this.categoryService.getCategoryList().subscribe(result => {
+      this.categoryList = result;
+    });
+  }
 }

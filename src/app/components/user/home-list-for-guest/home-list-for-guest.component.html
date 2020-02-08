@@ -1,13 +1,26 @@
 <h1> List of houses</h1>
 <div class="container">
   <div *ngIf="house">
-    <div class="search-house">
-      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search">
+    <!--    <form formControlName="search" [formControl]="formSearch">-->
+    <div class="search-house d-flex">
+      <input [(ngModel)]="searchName" autocomplete="off" class="form-control" name="search"
+             placeholder="&#61442;  Search" style="margin-right: 5px" type="text">
+      <input [(ngModel)]="searchArea" autocomplete="off" class="form-control" name="area" placeholder="&#61442;  Area"
+             type="number">
+      <input [(ngModel)]="searchBedRoom" autocomplete="off" class="form-control" name="room"
+             placeholder="&#61442;  BedRoom" type="number">
+      <select [(ngModel)]="searchCategory" class="custom-select">
+        <option *ngFor="let category of categoryList" [value]="category.name"> {{category.name}}</option>
+      </select>
     </div>
+    <!--    </form>-->
+    <!--    <div *ngIf="formSearch.dirty">-->
+    <!--      <a>Remove Filter</a>-->
+    <!--    </div>-->
     <div class="row">
 
       <div class="col-sm-4"
-           *ngFor="let houseItem of house   | houseDetailFilter: searchText| paginate: {itemsPerPage: 9, currentPage: pageActual}; index as i">
+           *ngFor="let houseItem of house | houseDetailFilter: searchName: searchArea: searchBedRoom: searchCategory | paginate: {itemsPerPage: 9, currentPage: pageActual}; index as i">
         <app-public-house-item [house]="houseItem"></app-public-house-item>
       </div>
     </div>
