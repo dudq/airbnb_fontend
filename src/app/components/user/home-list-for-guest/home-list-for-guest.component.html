@@ -5,13 +5,15 @@
     <div class="search-house d-flex">
       <input [(ngModel)]="searchName" autocomplete="off" class="form-control" name="search"
              placeholder="&#61442;  Search" style="margin-right: 5px" type="text">
-      <input [(ngModel)]="searchArea" autocomplete="off" class="form-control" name="area" placeholder="&#61442;  Area"
-             type="number">
-      <input [(ngModel)]="searchBedRoom" autocomplete="off" class="form-control" name="room"
-             placeholder="&#61442;  BedRoom" type="number">
-      <select [(ngModel)]="searchCategory" class="custom-select">
+      <select [(ngModel)]="searchCategory" class="custom-select form-control" style="margin-right: 5px">
         <option *ngFor="let category of categoryList" [value]="category.name"> {{category.name}}</option>
       </select>
+      <input [(ngModel)]="searchArea" autocomplete="off" class="form-control" name="area" placeholder="&#61442;  Area"
+             style="margin-right: 5px" type="number">
+      <input [(ngModel)]="searchBedRoom" autocomplete="off" class="form-control" name="room"
+             placeholder="&#61442;  BedRoom" style="margin-right: 5px" type="number">
+      <input [(ngModel)]="searchPrice" autocomplete="off" class="form-control" name="price"
+             placeholder="&#61442;  $" style="margin-right: 5px" type="number">
     </div>
     <!--    </form>-->
     <!--    <div *ngIf="formSearch.dirty">-->
@@ -20,7 +22,7 @@
     <div class="row">
 
       <div class="col-sm-4"
-           *ngFor="let houseItem of house | houseDetailFilter: searchName: searchArea: searchBedRoom: searchCategory | paginate: {itemsPerPage: 9, currentPage: pageActual}; index as i">
+           *ngFor="let houseItem of house | houseDetailFilter: searchName: searchArea: searchBedRoom: searchCategory: searchPrice | paginate: {itemsPerPage: 9, currentPage: pageActual}; index as i">
         <app-public-house-item [house]="houseItem"></app-public-house-item>
       </div>
     </div>

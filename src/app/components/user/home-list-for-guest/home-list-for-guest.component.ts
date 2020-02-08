@@ -22,6 +22,7 @@ export class HomeListForGuestComponent implements OnInit {
   searchArea;
   searchBedRoom;
   searchCategory;
+  searchPrice;
   // house: House;
   house: IHouseDetail[] = [];
 

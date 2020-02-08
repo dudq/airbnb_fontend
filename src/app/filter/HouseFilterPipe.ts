@@ -6,8 +6,8 @@ import {IHouseDetail} from '../interface/house/houseDetail';
 })
 
 export class HouseFilterPipe implements PipeTransform {
-  transform(houseDetails: IHouseDetail[], searchName: string, searchMinArea: number, searchBedRoom: number, searchCategory: string): IHouseDetail[] {
-    if (!houseDetails || (!searchName && !searchMinArea && !searchBedRoom && !searchCategory)) {
+  transform(houseDetails: IHouseDetail[], searchName: string, searchMinArea: number, searchBedRoom: number, searchCategory: string, searchPrice: number): IHouseDetail[] {
+    if (!houseDetails || (!searchName && !searchMinArea && !searchBedRoom && !searchCategory && !searchPrice)) {
       return houseDetails;
     }
     return houseDetails.filter(houseDetail => {
@@ -19,11 +19,15 @@ export class HouseFilterPipe implements PipeTransform {
         return false;
       }
 
-      if (searchBedRoom && searchBedRoom > houseDetail.bedroomNumber) {
+      if (searchBedRoom && searchBedRoom !== houseDetail.bedroomNumber) {
         return false;
       }
 
       if (searchCategory && houseDetail.category.name.toLocaleLowerCase().indexOf(searchCategory.toLocaleLowerCase()) === -1) {
+        return false;
+      }
+
+      if (searchPrice && searchPrice < houseDetail.price) {
         return false;
       }
 
