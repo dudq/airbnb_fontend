@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../../auth/token-storage.service';
 import {HouseService} from '../../../service/house/house.service';
 import {IHouseDetail} from '../../../interface/house/houseDetail';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {CategoryService} from '../../../service/category-house/category.service';
 import {ICategory} from '../../admin/category/iCategory';
 
@@ -17,7 +17,7 @@ export class HomeListForGuestComponent implements OnInit {
   categoryList: ICategory[];
   pageActual = 1;
   maxSize = 3;
-  formSearch: FormControl;
+  formSearch: FormGroup;
   searchName;
   searchArea;
   searchBedRoom;
@@ -28,7 +28,8 @@ export class HomeListForGuestComponent implements OnInit {
 
   constructor(private token: TokenStorageService,
               private houseService: HouseService,
-              private categoryService: CategoryService
+              private categoryService: CategoryService,
+              private fb: FormBuilder
   ) {
   }
 
@@ -41,6 +42,13 @@ export class HomeListForGuestComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
+    this.formSearch = this.fb.group({
+      searchName: new FormControl(''),
+      searchCategory: new FormControl(''),
+      searchArea: new FormControl(''),
+      searchBedRoom: new FormControl(''),
+      searchPrice: new FormControl(''),
+    });
     // this.formSearch = new FormControl('');
     // console.log('>>>' + this.searchName);
     // console.log('>>>' + typeof this.searchCategory);
