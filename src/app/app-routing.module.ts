@@ -23,6 +23,7 @@ import {LoginGuardService} from './auth/guard/LoginGuardService';
 import {HouseCreateComponent} from './components/admin/house/house-create/house-create.component';
 import {HostGuardService} from './auth/guard/HostGuardService';
 import {HouseEditComponent} from './components/admin/house/house-edit/house-edit.component';
+import {HouseBookingCreateComponent} from './components/admin/house-booking/house-booking-create/house-booking-create.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: 'user/home-list-for-guest',
     component: HomeListForGuestComponent
+  },
+  {
+    path: 'user/house-booking-create/:id',
+    component: HouseBookingCreateComponent
   },
   {
     path: 'category-list',
