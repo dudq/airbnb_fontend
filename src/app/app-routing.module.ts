@@ -25,6 +25,7 @@ import {HostGuardService} from './auth/guard/HostGuardService';
 import {HouseEditComponent} from './components/admin/house/house-edit/house-edit.component';
 import {HouseBookingCreateComponent} from './components/admin/house-booking/house-booking-create/house-booking-create.component';
 import {UserHouseBookingComponent} from './components/user/user-house-booking/user-house-booking.component';
+import {InformationComponent} from './components/user/information/information.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'register-host',
     component: RegisterHostComponent
+  },
+  {
+    path: 'information',
+    component: InformationComponent
   },
   {
     path: 'houses',
