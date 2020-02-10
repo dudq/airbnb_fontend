@@ -43,7 +43,8 @@ import {HouseItemComponent} from './house/house-item/house-item.component';
   exports: [
     HouseDetailComponent,
     HouseCreateComponent,
-    HouseItemComponent
+    HouseItemComponent,
+    HouseBookingItemComponent
   ]
 })
 export class AdminModule {

@@ -34,6 +34,7 @@ import {PublicHouseItemComponent} from './components/public/public-house-item/pu
 import {Page404Component} from './page404/page404.component';
 import {InformationComponent} from './components/user/information/information.component';
 import {HouseFilterPipe} from './filter/HouseFilterPipe';
+import {UserHouseBookingComponent} from './components/user/user-house-booking/user-house-booking.component';
 
 const routes: Routes = [
   {
@@ -66,7 +67,8 @@ const routes: Routes = [
     PublicHouseItemComponent,
     Page404Component,
     InformationComponent,
-    HouseFilterPipe
+    HouseFilterPipe,
+    UserHouseBookingComponent
 
   ],
   imports: [

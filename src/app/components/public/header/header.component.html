@@ -177,9 +177,9 @@
             House
           </a>
           <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-            <a *ngIf="authority==='host'" class="dropdown-item" routerLink="/add-house">Add House</a>
+            <a *ngIf="authority==='host'" class="dropdown-item" routerLink="/host/house-create">Add House</a>
             <a *ngIf="authority==='user'" class="dropdown-item" routerLink="/booking">Booking Room</a>
-            <a *ngIf="authority==='user'" class="dropdown-item" routerLink="/user/list-order-of-user">List your
+            <a *ngIf="authority==='user'" class="dropdown-item" routerLink="/user/house-booking-list">List your
               booked</a>
           </div>
         </li>
