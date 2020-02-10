@@ -9,6 +9,7 @@ import {TokenStorageService} from '../../../../auth/token-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Picture} from '../../../../interface/picture';
+import {Status} from '../../../../interface/Status';
 
 @Component({
   selector: 'app-house-edit',
@@ -20,10 +21,8 @@ export class HouseEditComponent implements OnInit {
   isSuccess = false;
   form: any = {};
   house: IHouseDetail;
-  // category: ICategory;
   categoryList: ICategory[] = [];
   submitted = false;
-  // picture: string;
   arrayPicture: string[] = [];
   houseForm: FormGroup;
   houseName: string;
@@ -35,6 +34,9 @@ export class HouseEditComponent implements OnInit {
   description: string;
   price: number;
   area: number;
+  status: Status;
+  typeOfStatus = Status;
+  keys = Object.keys(Status).filter(k => !isNaN(Number(k)));
   user: any;
   private info: any = {};
 
@@ -45,6 +47,8 @@ export class HouseEditComponent implements OnInit {
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
               private fb: AngularFireDatabase) {
+    // this.keys = Object.keys(this.status);
+    console.log('>>>' + this.keys);
   }
 
   get f() {
@@ -59,6 +63,7 @@ export class HouseEditComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
+    this.getHouseById();
     this.houseForm = this.formBuilder.group({
       id: '',
       houseName: new FormControl('', Validators.required),
@@ -70,9 +75,10 @@ export class HouseEditComponent implements OnInit {
       description: new FormControl(''),
       price: new FormControl('', [Validators.required, Validators.min(0)]),
       area: new FormControl('', [Validators.required, Validators.min(0)]),
-      user: this.token.getUserId()
+      user: this.token.getUserId(),
+      status: new FormControl(this.status)
     });
-    this.getHouseById();
+    this.houseForm.controls['status'].setValue(this.status);
   }
 
   onSubmit() {
@@ -85,6 +91,7 @@ export class HouseEditComponent implements OnInit {
     }
     console.log(this.house);
     this.house.category = this.category;
+    // this.house.status = Object.values(this.houseForm.status). ;
     // console.log(this.arrayPicture);
     // const house = this.houseForm.value;
 
@@ -155,6 +162,8 @@ export class HouseEditComponent implements OnInit {
         this.description = house.description;
         this.price = house.price;
         this.area = house.area;
+        this.status = house.status;
+        console.log('>>>' + this.status);
       },
       error => {
         this.house = null;

@@ -1,26 +1,35 @@
 <h1> List of houses</h1>
 <div class="container">
   <div *ngIf="house">
-    <div class="search-house">
-      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search">
-    </div>
+    <form [formGroup]="formSearch">
+      <div class="search-house d-flex">
+        <input autocomplete="off" class="form-control" formControlName="searchName" name="search"
+               placeholder="&#61442;  Search" style="margin-right: 5px" type="text">
+        <select class="custom-select form-control" formControlName="searchCategory" style="margin-right: 5px">
+          <option *ngFor="let category of categoryList" [value]="category.name"> {{category.name}}</option>
+        </select>
+        <input autocomplete="off" class="form-control" formControlName="searchArea" name="area"
+               placeholder="&#61442;  Area" style="margin-right: 5px" type="number">
+        <input autocomplete="off" class="form-control" formControlName="searchBedRoom" name="room"
+               placeholder="&#61442;  BedRoom" style="margin-right: 5px" type="number">
+        <input autocomplete="off" class="form-control" formControlName="searchPrice" name="price"
+               placeholder="&#61442;  $" style="margin-right: 5px" type="number">
+      </div>
+      <div *ngIf="formSearch.dirty">
+        <a (click)="ngOnInit()">Remove Filter</a>
+      </div>
+    </form>
+
     <div class="row">
 
       <div class="col-sm-4"
-           *ngFor="let houseItem of house   | filter: searchText| paginate: {itemsPerPage: 9, currentPage: pageActual}; index as i">
-        <div class="card" style="width: 18rem;" routerLink="/home/{{houseItem.id}}/{{houseItem.name}}">
-          <img src="{{houseItem.picture[0]}}"
-               class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">
-              Name: {{ houseItem.name }}
-            </p>
-            <label>
-              Address: {{houseItem.address}}
-            </label>
-            <div id="priceHouseItem"> Price: {{houseItem.price}}</div>
-          </div>
-        </div>
+           *ngFor="let houseItem of house | houseDetailFilter: formSearch.controls.searchName.value
+                                             : formSearch.controls.searchArea.value
+                                             : formSearch.controls.searchBedRoom.value
+                                             : formSearch.controls.searchCategory.value
+                                             : formSearch.controls.searchPrice.value
+                                             | paginate: {itemsPerPage: 9, currentPage: pageActual}; index as i">
+        <app-public-house-item [house]="houseItem"></app-public-house-item>
       </div>
     </div>
   </div>

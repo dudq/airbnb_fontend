@@ -121,6 +121,7 @@ export class HouseCreateComponent implements OnInit {
     this.categoryService.getListCategory().subscribe(result => {
       // @ts-ignore
       this.categoryList = result;
+      this.category = this.categoryList[0];
     });
   }
 }

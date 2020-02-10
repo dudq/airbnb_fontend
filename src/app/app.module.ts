@@ -33,6 +33,8 @@ import {PublicHouseListComponent} from './components/public/public-house-list/pu
 import {PublicHouseItemComponent} from './components/public/public-house-item/public-house-item.component';
 import {Page404Component} from './page404/page404.component';
 import {InformationComponent} from './components/user/information/information.component';
+import {HouseFilterPipe} from './filter/HouseFilterPipe';
+import {UserHouseBookingComponent} from './components/user/user-house-booking/user-house-booking.component';
 
 const routes: Routes = [
   {
@@ -64,7 +66,9 @@ const routes: Routes = [
     PublicHouseListComponent,
     PublicHouseItemComponent,
     Page404Component,
-    InformationComponent
+    InformationComponent,
+    HouseFilterPipe,
+    UserHouseBookingComponent
 
   ],
   imports: [

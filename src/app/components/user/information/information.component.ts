@@ -25,6 +25,8 @@ export class InformationComponent implements OnInit {
       email: this.token.getEmail(),
       authorities: this.token.getAuthorities(),
     };
+    console.log(this.info.name);
+    console.log(this.info.email);
     console.log('token from Browser:' + this.info.token);
     if (this.token.getToken()) {
       this.roles = this.token.getAuthorities();

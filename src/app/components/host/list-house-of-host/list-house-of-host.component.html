@@ -1,30 +1,8 @@
-<table *ngIf="houseListOfHost" class="table table-hover">
-  <thead>
-  <tr class="table-bordered table-primary" style="text-align: center; font-weight: 900 ; color: red ; font-size: 50px">
-    <th scope="col">#ID</th>
-    <th scope="col">Tên Nhà</th>
-    <th scope="col">Địa Chỉ</th>
-    <th scope="col">Loại Nhà</th>
-    <th scope="col">Giá</th>
-    <th scope="col">Trạng Thái</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let houseItem of houseListOfHost " class="table-bordered"
-      routerLink="/home/{{houseItem.id}}/{{houseItem.name}}" style="text-align: center">
-    <!--|    paginate: {itemsPerPage: 9, currentPage:pageActual},index as i">-->
-    <th scope="row">{{houseItem.id}}</th>
-    <th>{{houseItem.name}}</th>
-    <th>{{houseItem.address}}</th>
-    <th>{{houseItem.categoryName}}</th>
-    <th>{{houseItem.price}}</th>
-    <!--    <th>{{houseItem.status}}</th>-->
-  </tr>
-  </tbody>
-</table>
-<div id="pagination">
-  <pagination-controls (pageChange)="pageActual = $event"
-  ></pagination-controls>
+<div class="container text-center align-items-center">
+  <div>
+    <h3 class="display-5">List house of {{info.username}}</h3>
+  </div>
+  <app-house-item [houseList]="houseList"></app-house-item>
 </div>
 <div id="clear">
   <div class="fb-comments" data-href="http://localhost:4200/host/list-house-of-host" data-numposts="10"

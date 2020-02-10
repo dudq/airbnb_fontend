@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IHouseBooking} from '../../../../interface/housebooking';
 import {Info} from '../../../../interface/info';
 import {HouseBookingService} from '../../../../service/order-house/housebooking.service';
@@ -13,9 +13,10 @@ export class HouseBookingItemComponent implements OnInit {
   @Input() currentUser: Info;
   message: string;
   isCancel: boolean;
-  // @Output() checkIn = new EventEmitter();
-  // @Output() checkOut = new EventEmitter();
-  // @Output() cancelHouseBooking = new EventEmitter();
+  @Output() loadData = new EventEmitter();
+  page = 1;
+  pageTotal: number;
+
   constructor(private houseBookingService: HouseBookingService) {
   }
 
@@ -26,7 +27,7 @@ export class HouseBookingItemComponent implements OnInit {
     this.houseBookingService.checkIn(id).subscribe(
       result => {
         this.message = result.message;
-        this.ngOnInit();
+        this.loadData.emit();
       }
     );
   }
@@ -35,9 +36,25 @@ export class HouseBookingItemComponent implements OnInit {
     this.houseBookingService.checkOut(id).subscribe(
       result => {
         this.message = result.message;
-        this.ngOnInit();
+        this.loadData.emit();
       }
     );
+  }
+
+  changePage(page) {
+    this.pageTotal = this.houseBookedList.length;
+    switch (page) {
+      case 'previous':
+        if (this.page > 1) {
+          this.page = this.page - 1;
+        }
+        break;
+      case 'next':
+        if (this.page < this.pageTotal) {
+          this.page = this.page + 1;
+        }
+        break;
+    }
   }
 
   cancelHouseBooking(id: number) {
@@ -46,7 +63,7 @@ export class HouseBookingItemComponent implements OnInit {
         this.isCancel = result.success;
         this.message = result.message;
         alert(result.message);
-        this.ngOnInit();
+        this.loadData.emit();
       }
     );
   }

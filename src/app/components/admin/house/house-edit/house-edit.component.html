@@ -39,9 +39,15 @@
       </div>
 
       <div class="form-group">
-        <div *ngIf="picture" class="image-preview">
+        <div *ngIf="arrayPicture.length == 0" class="image-preview">
           <div *ngFor="let preview of picture" class="float-left">
             <img [src]="preview.url" height="100"/>&nbsp;
+          </div>
+          <div></div>
+        </div>
+        <div *ngIf="arrayPicture.length != 0" class="image-preview">
+          <div *ngFor="let preview of arrayPicture" class="float-left">
+            <img [src]="preview" height="100"/>&nbsp;
           </div>
           <div></div>
         </div>
@@ -111,9 +117,22 @@
           <div *ngIf="f.price.errors.min">Price must greater than 0</div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label>
+          Status
+        </label>
+        <select
+          class="form-control"
+          formControlName="status"
+          id="status"
+          name="status">
+          <option *ngFor="let key of keys" [value]="typeOfStatus[key]">{{typeOfStatus[key]}}</option>
+        </select>
+      </div>
       <div class="form-group">
         <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-primary" routerLink="/home">Back Home</button>
+        <button class="btn btn-primary" routerLink="/host/list-house-of-host">Back House List</button>
       </div>
     </form>
   </fieldset>

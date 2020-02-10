@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IHouseDetail} from '../../../../interface/house/houseDetail';
 import {HouseService} from '../../../../service/house/house.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Status} from '../../../../interface/Status';
 
 @Component({
   selector: 'app-house-detail',
@@ -10,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HouseDetailComponent implements OnInit {
   house: IHouseDetail;
-
+  typeOfStatus = Status;
   constructor(
     private houseService: HouseService,
     private route: ActivatedRoute,
