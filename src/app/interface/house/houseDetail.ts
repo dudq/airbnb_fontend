@@ -1,3 +1,5 @@
+import {Status} from '../Status';
+
 export interface IHouseDetail {
   id: number;
   houseName: string;
@@ -10,4 +12,5 @@ export interface IHouseDetail {
   price: number;
   area: number;
   user: any;
+  status: Status;
 }

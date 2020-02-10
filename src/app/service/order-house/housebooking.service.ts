@@ -18,9 +18,12 @@ export class HouseBookingService {
   }
 
   public getHouseId(id: number): Observable<ResponseMessage> {
-    return this.httpClient.get<ResponseMessage>(this.API_URL + id);
+    return this.httpClient.get<ResponseMessage>(this.API_URL + '/host/' + id);
   }
 
+  public getHouseUser(id: string): Observable<ResponseMessage> {
+    return this.httpClient.get<ResponseMessage>(this.API_URL + '/user/' + id);
+  }
 
   public addHouse(houseBooking: IHouseBooking): Observable<ResponseMessage> {
     return this.httpClient.post<ResponseMessage>(this.API_URL, houseBooking);

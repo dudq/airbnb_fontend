@@ -20,6 +20,7 @@ function checkInValidate(control: FormControl) {
   return null;
 }
 
+
 @Component({
   selector: 'app-house-booking-create',
   templateUrl: './house-booking-create.component.html',
@@ -52,16 +53,25 @@ export class HouseBookingCreateComponent implements OnInit {
 
     this.bookingForm = this.fb.group({
       id: [''],
-      dateCheckIn: [this.now, [Validators.required, checkInValidate]],
-      dateCheckOut: [this.now, [Validators.required, checkInValidate]],
+      dateCheckIn: new FormControl(this.now, [Validators.required, checkInValidate]),
+      dateCheckOut: new FormControl(this.now, [Validators.required, checkInValidate]),
       guest: [1],
       house: {id: houseId},
       user: {id: this.user},
     });
+    console.log(this.bookingForm.value);
+    console.log(this.bookingForm.controls.dateCheckIn.value);
+  }
+
+  checkDateOfCheckOut() {
+    if (this.bookingForm.controls.dateCheckIn.value > this.bookingForm.controls.dateCheckOut.value) {
+      return false;
+    }
+    return true;
   }
 
   onSubmit() {
-    if (this.bookingForm.valid) {
+    if (this.bookingForm.valid && this.checkDateOfCheckOut()) {
       const {value} = this.bookingForm;
       this.houseBooking = value;
       console.log('>>>' + JSON.stringify(this.houseBooking));
@@ -80,3 +90,4 @@ export class HouseBookingCreateComponent implements OnInit {
     this.isSubmited = true;
   }
 }
+

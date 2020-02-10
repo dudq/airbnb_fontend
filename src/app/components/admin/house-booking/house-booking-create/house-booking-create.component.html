@@ -5,7 +5,7 @@
     </div>
     <div>
       <div class="form-group">
-        <input class="btn btn-primary btn-block" routerLink="/admin/house-booking-list"
+        <input class="btn btn-primary btn-block" routerLink="/user/house-booking-list"
                value="Back to house booking list">
       </div>
     </div>
@@ -30,7 +30,7 @@
             <div class="form-group">
               <span class="form-label">Check In</span>
               <input [ngClass]="{ 'is-invalid': bookingForm.get('dateCheckIn').errors }" class="form-control"
-                     formControlName="dateCheckIn" required type="date">
+                     (change)="checkDateOfCheckOut()" formControlName="dateCheckIn" required type="date">
               <div *ngIf="bookingForm.get('dateCheckIn').invalid && bookingForm.get('dateCheckIn').touched"
                    class="invalid-feedback">
                 Date not valid!
@@ -44,15 +44,20 @@
           <div class="col-md-4">
             <div class="form-group">
               <span class="form-label">Check out</span>
-              <input [ngClass]="{ 'is-invalid': bookingForm.get('dateCheckOut').errors }" class="form-control"
-                     formControlName="dateCheckOut" required type="date">
-              <div *ngIf="bookingForm.get('dateCheckOut').invalid && bookingForm.get('dateCheckOut').touched"
+              <input (change)="checkDateOfCheckOut()"
+                     [ngClass]="{ 'is-invalid': (bookingForm.get('dateCheckOut').errors || !checkDateOfCheckOut()) }"
+                     class="form-control" formControlName="dateCheckOut" required type="date">
+              <!--              <div *ngIf="bookingForm.get('dateCheckOut').invalid && bookingForm.get('dateCheckOut').touched"-->
+              <!--                   class="invalid-feedback">-->
+              <!--                Date not valid !-->
+              <!--              </div>-->
+              <!--              <div *ngIf="bookingForm.get('dateCheckOut').errors?.beforeNow && bookingForm.get('dateCheckOut').touched"-->
+              <!--                   class="invalid-feedback">-->
+              <!--                Too Late !-->
+              <!--              </div>-->
+              <div *ngIf="!checkDateOfCheckOut() && bookingForm.get('dateCheckOut').touched"
                    class="invalid-feedback">
-                Date not valid!
-              </div>
-              <div *ngIf="bookingForm.get('dateCheckOut').errors?.beforeNow && bookingForm.get('dateCheckOut').touched"
-                   class="invalid-feedback">
-                Too Late !
+                Invalid date check out !
               </div>
             </div>
           </div>
@@ -69,7 +74,7 @@
           </div>
           <div class="col-md-4 d-flex align-items-center">
             <div class="form-btn">
-              <button class="submit-btn mr-auto">Check availability</button>
+              <button class="submit-btn mr-auto">Booking</button>
             </div>
           </div>
         </div>

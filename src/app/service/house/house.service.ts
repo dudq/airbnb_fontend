@@ -3,7 +3,6 @@ import {HouseConvertById} from '../../interface/house/houseConvertById';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CategoryHouse2} from '../../interface/category-house';
-import {DataHouseListOfHost} from '../../components/host/list-house-of-host/house-list-of-host/dataHouseListOfHost';
 import {IHouseDetail} from '../../interface/house/houseDetail';
 
 @Injectable({
@@ -51,8 +50,11 @@ export class HouseService {
     return this.httpClient.put<IHouseDetail>(this.API_URL + 'houses', house);
   }
 
-  public getListHouseOfHost(id: number): Observable<DataHouseListOfHost []> {
-    return this.httpClient.get<DataHouseListOfHost []>(this.API_URL + 'houses/host/' + id);
+  // public getListHouseOfHost(id: number): Observable<DataHouseListOfHost []> {
+  //   return this.httpClient.get<DataHouseListOfHost []>(this.API_URL + 'houses/host/' + id);
+  // }
+  public getListHouseOfHost(id: number): Observable<IHouseDetail[]> {
+    return this.httpClient.get<IHouseDetail []>(this.API_URL + 'houses/host/' + id);
   }
 
   public getListCategory(): Observable<CategoryHouse2> {
