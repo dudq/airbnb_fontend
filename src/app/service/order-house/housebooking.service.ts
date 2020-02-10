@@ -17,7 +17,7 @@ export class HouseBookingService {
     return this.httpClient.get<ResponseMessage>(this.API_URL);
   }
 
-  public getHouseId(id: number): Observable<ResponseMessage> {
+  public getHouseId(id: string): Observable<ResponseMessage> {
     return this.httpClient.get<ResponseMessage>(this.API_URL + '/host/' + id);
   }
 
