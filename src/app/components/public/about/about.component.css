@@ -1,0 +1,31 @@
+#about {
+  margin-left: 4%;
+  margin-top: 3%;
+}
+
+.one_third first {
+  margin-bottom: 3%;
+}
+
+#member {
+  font-family: "Times New Roman";
+  font-weight: 900;
+}
+
+.clear {
+  font-family: "Times New Roman";
+  font-weight: 500;
+}
+
+#team {
+  font-family: "Times New Roman";
+  font-weight: 500;
+}
+
+#content {
+  float: right;
+}
+
+#h3 {
+  margin-left: 42%;
+}

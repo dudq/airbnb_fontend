@@ -1,2 +1,64 @@
-<h3>See you in CG</h3>
-<router-outlet></router-outlet>
+<!-- Material form contact -->
+<div class="card">
+
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Contact us</strong>
+  </h5>
+  <br>
+  <br>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form action="#!" class="text-center" style="color: #757575;">
+
+      <!-- Name -->
+      <div class="md-form mt-3">
+        <input class="form-control" id="materialContactFormName" type="text">
+        <label for="materialContactFormName">Name</label>
+      </div>
+
+      <!-- E-mail -->
+      <div class="md-form">
+        <input class="form-control" id="materialContactFormEmail" type="email">
+        <label for="materialContactFormEmail">E-mail</label>
+      </div>
+
+      <!-- Subject -->
+      <span>Subject</span><br>
+      <select class="mdb-select">
+        <option disabled value="">Choose option</option>
+        <option selected value="1">Feedback</option>
+        <option value="2">Report a bug</option>
+        <option value="3">Feature request</option>
+        <option value="4">Feature request</option>
+      </select>
+
+      <!--Message-->
+      <div class="md-form">
+        <textarea class="form-control md-textarea" id="materialContactFormMessage"></textarea>
+        <label for="materialContactFormMessage">Message</label>
+      </div>
+
+      <!-- Copy -->
+      <div class="form-check">
+        <input class="form-check-input" id="materialContactFormCopy" type="checkbox">
+        <label class="form-check-label" for="materialContactFormCopy">Send me a copy of this message</label>
+      </div>
+
+      <!-- Send button -->
+      <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" onclick="function contactForm() {
+                alert('Thank you for use our service. We will confirm and reply your contact')
+              }
+      contactForm()"
+              type="submit">Send
+      </button>
+
+    </form>
+    <!-- Form -->
+
+  </div>
+
+</div>
+<!-- Material form contact -->
