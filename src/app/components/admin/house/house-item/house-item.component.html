@@ -17,7 +17,7 @@
   <tbody *ngFor="let house of houseList; index as i"
          style="text-align: center">
   <tr *ngIf="i < page * 4 && i >= page * 4 - 4">
-    <th scope="row">{{house.id}}</th>
+    <th scope="row">{{i + 1}}</th>
     <th><a routerLink="/admin/house-detail/{{house.id}}">{{house.houseName}}</a></th>
     <th>{{house.address}}</th>
     <th>{{house.category.name}}</th>
