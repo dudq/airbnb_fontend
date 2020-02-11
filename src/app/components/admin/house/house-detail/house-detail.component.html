@@ -45,20 +45,21 @@
           <h5 class="sizes">Category:
             <span class="size" data-toggle="tooltip" title="small">{{house.category.name}}</span>
           </h5>
-          <div class="colors">Host: <label> {{house.user.name}}</label>
-            <div class="colors">Status: <label> {{house.status}}</label>
-              <div class="action">
-                <!--            *ngIf="authority === 'user'" -->
-                <a [ngClass]="house.status === 'AVAILABLE' ? 'active' : 'disabled'" class="add-to-cart btn btn-warning"
-                   role="button"
-                   routerLink="/user/house-booking-create/{{house.id}}">
-                  Booking now
-                </a>
-                <button class="btn btn-warning" type="button"><span class="fa fa-heart"></span></button>
-              </div>
+          <div class="colors" routerLink="/home">Host: <label> {{house.user.name}}</label>
+            <div class="action">
+              <!--            *ngIf="authority === 'user'" -->
+              <button class="add-to-cart btn btn-warning" routerLink="/admin/house-booking-create/{{house.id}}">Booking
+                now
+              </button>
+              <button class="btn btn-warning" type="button"><span class="fa fa-heart"></span></button>
             </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div id="clear">
+    <div class="fb-comments" data-href="http://localhost:4200/houses-detail/:id" data-numposts="10"
+         data-width="700"></div>
   </div>
 </div>
