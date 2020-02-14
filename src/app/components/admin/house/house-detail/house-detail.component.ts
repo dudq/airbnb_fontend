@@ -12,6 +12,7 @@ import {Status} from '../../../../interface/Status';
 export class HouseDetailComponent implements OnInit {
   house: IHouseDetail;
   typeOfStatus = Status;
+  id: number;
   constructor(
     private houseService: HouseService,
     private route: ActivatedRoute,
@@ -21,6 +22,7 @@ export class HouseDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.id = id;
     console.log('>>>' + id);
     this.houseService.getHouseId(id).subscribe(
       result => {
