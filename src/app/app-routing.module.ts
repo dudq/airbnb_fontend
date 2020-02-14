@@ -27,6 +27,7 @@ import {HouseBookingCreateComponent} from './components/admin/house-booking/hous
 import {UserHouseBookingComponent} from './components/user/user-house-booking/user-house-booking.component';
 import {InformationComponent} from './components/user/information/information.component';
 import {HostBookingHouseComponent} from './components/host/host-booking-house/host-booking-house.component';
+import {UserGuardService} from './auth/guard/UserGuardService';
 
 const routes: Routes = [
   {
@@ -97,7 +98,8 @@ const routes: Routes = [
   },
   {
     path: 'user/house-booking-create/:id',
-    component: HouseBookingCreateComponent
+    component: HouseBookingCreateComponent,
+    canActivate: [UserGuardService]
   },
   {
     path: 'user/house-booking-list',

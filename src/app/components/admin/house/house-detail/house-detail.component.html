@@ -45,21 +45,35 @@
           <h5 class="sizes">Category:
             <span class="size" data-toggle="tooltip" title="small">{{house.category.name}}</span>
           </h5>
-          <div class="colors" routerLink="/home">Host: <label> {{house.user.name}}</label>
-            <div class="action">
-              <!--            *ngIf="authority === 'user'" -->
-              <button class="add-to-cart btn btn-warning" routerLink="/admin/house-booking-create/{{house.id}}">Booking
-                now
-              </button>
-              <button class="btn btn-warning" type="button"><span class="fa fa-heart"></span></button>
+          <div class="colors">Host: <label> {{house.user.name}}</label>
+            <div class="colors">Status: <label> {{house.status}}</label>
+              <div class="action">
+                <!--            *ngIf="authority === 'user'" -->
+                <a [ngClass]="house.status === 'AVAILABLE' ? 'active' : 'disabled'" class="add-to-cart btn btn-warning"
+                   role="button"
+                   routerLink="/user/house-booking-create/{{house.id}}">
+                  Booking now
+                </a>
+                <button class="btn btn-warning" type="button"><span class="fa fa-heart"></span></button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="clear">
-    <div class="fb-comments" data-href="http://localhost:4200/houses-detail/:id" data-numposts="10"
-         data-width="700"></div>
+
+    <div class="container-fluid float-left d-flex">
+      <div class="col-6 d-flex align-items-center">
+        <iframe
+          allowfullscreen=""
+          frameborder="0" height="450"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9265632499087!2d105.76612144988798!3d21.03562419285252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b9444c676b%3A0xe713200541b7456d!2sCodeGym!5e0!3m2!1svi!2s!4v1581319808096!5m2!1svi!2s"
+          style="border:0;" width="500"></iframe>
+      </div>
+      <div class="col-6">
+        <div class="fb-comments" data-href="http://localhost:4200/houses-detail/" data-numposts="10"
+             data-width="550"></div>
+      </div>
+    </div>
   </div>
 </div>
